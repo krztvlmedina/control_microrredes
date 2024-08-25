@@ -50,67 +50,14 @@ Plecs {
   ExternalModeSettings ""
   AlgebraicLoopMethod "1"
   AlgebraicLoopTolerance "1e-6"
-  ScriptsDialogGeometry ""
-  ScriptsDialogSplitterPos "0"
+  ScriptsDialogGeometry "[764 399 446 243]"
+  ScriptsDialogSplitterPos "100"
   Schematic {
-    Location      [0, 23; 1674, 785]
-    ZoomFactor    1.14437
-    SliderPosition [0, 0]
+    Location      [177, 76; 1851, 838]
+    ZoomFactor    0.873849
+    SliderPosition [58, 0]
     ShowBrowser   on
-    BrowserWidth  134
-    Component {
-      Type          VoltageSource
-      Name          "Fuente"
-      Show          on
-      Position      [415, 465]
-      Direction     down
-      Flipped       on
-      LabelPosition east
-      Parameter {
-        Variable      "DiscretizationBehavior"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "StateSpaceInlining"
-        Value         "1"
-        Show          off
-      }
-    }
-    Component {
-      Type          MosfetWithDiode
-      Name          "FETD"
-      Show          on
-      Position      [560, 495]
-      Direction     up
-      Flipped       off
-      LabelPosition east
-      Parameter {
-        Variable      "Ron"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "s_init"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "thermal"
-        Value         ""
-        Show          off
-      }
-      Parameter {
-        Variable      "Rth"
-        Value         "0"
-        Show          off
-      }
-      Parameter {
-        Variable      "T_init"
-        Value         ""
-        Show          off
-      }
-    }
+    BrowserWidth  221
     Component {
       Type          Subsystem
       Name          "CCL"
@@ -119,6 +66,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
+      CommentOut    DisabledOpenCircuit
       Frame         [-25, -15; 25, 15]
       SampleTime    "-1"
       CodeGenDiscretizationMethod "2"
@@ -198,6 +146,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
+      CommentOut    DisabledOpenCircuit
       Frame         [-25, -15; 25, 15]
       SampleTime    "-1"
       CodeGenDiscretizationMethod "2"
@@ -277,6 +226,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
+      CommentOut    DisabledOpenCircuit
       Parameter {
         Variable      "IconShape"
         Value         "2"
@@ -302,11 +252,12 @@ Plecs {
       Type          Subsystem
       Name          "Droop control"
       Show          on
-      Position      [275, 215]
+      Position      [275, 225]
       Direction     up
       Flipped       off
       LabelPosition south
-      Frame         [-25, -15; 25, 15]
+      CommentOut    DisabledOpenCircuit
+      Frame         [-25, -25; 25, 25]
       SampleTime    "-1"
       CodeGenDiscretizationMethod "2"
       CodeGenTarget "Generic"
@@ -314,6 +265,16 @@ Plecs {
       MaskIconFrame on
       MaskIconOpaque off
       MaskIconRotates on
+      Terminal {
+        Type          Input
+        Position      [-25, -10]
+        Direction     left
+      }
+      Terminal {
+        Type          Output
+        Position      [29, -10]
+        Direction     right
+      }
       Terminal {
         Type          Input
         Position      [-25, 0]
@@ -330,14 +291,14 @@ Plecs {
         Direction     left
       }
       Terminal {
-        Type          Output
-        Position      [29, 10]
-        Direction     right
+        Type          Input
+        Position      [-25, 20]
+        Direction     left
       }
       Schematic {
-        Location      [415, 55; 698, 259]
+        Location      [1192, 408; 1692, 664]
         ZoomFactor    1
-        SliderPosition [0, 0]
+        SliderPosition [0, 2]
         ShowBrowser   off
         BrowserWidth  100
         Component {
@@ -446,6 +407,44 @@ Plecs {
             Show          off
           }
         }
+        Component {
+          Type          Input
+          Name          "omega_0"
+          Show          on
+          Position      [25, 195]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "5"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Input
+          Name          "v_0"
+          Show          on
+          Position      [85, 220]
+          Direction     right
+          Flipped       off
+          LabelPosition southSouthwest
+          Parameter {
+            Variable      "Index"
+            Value         "6"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
         Connection {
           Type          Signal
           SrcComponent  "Qi(t)"
@@ -485,6 +484,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
+      CommentOut    DisabledOpenCircuit
       Frame         [-15, -15; 15, 15]
       Terminal {
         Type          Input
@@ -510,6 +510,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
+      CommentOut    DisabledOpenCircuit
       Frame         [-35, -15; 35, 15]
       SampleTime    "-1"
       CodeGenDiscretizationMethod "2"
@@ -613,6 +614,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
+      CommentOut    DisabledOpenCircuit
       Parameter {
         Variable      "IconShape"
         Value         "2"
@@ -642,6 +644,7 @@ Plecs {
       Direction     right
       Flipped       off
       LabelPosition south
+      CommentOut    DisabledOpenCircuit
       Parameter {
         Variable      "ExternalReset"
         Value         "1"
@@ -686,6 +689,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
+      CommentOut    DisabledOpenCircuit
       Frame         [-25, -15; 25, 15]
       SampleTime    "-1"
       CodeGenDiscretizationMethod "2"
@@ -715,7 +719,7 @@ Plecs {
         Direction     right
       }
       Schematic {
-        Location      [415, 55; 698, 259]
+        Location      [415, 55; 698, 267]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -814,32 +818,7 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Frame         [-15, -15; 15, 15]
-      Terminal {
-        Type          Input
-        Position      [-15, -5]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [19, 0]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-15, 5]
-        Direction     left
-      }
-    }
-    Component {
-      Type          Reference
-      SrcComponent  "Components/Control/Transformations/3ph->RRF"
-      Name          "3ph->RRF2"
-      Show          on
-      Position      [820, 220]
-      Direction     up
-      Flipped       off
-      LabelPosition south
+      CommentOut    DisabledOpenCircuit
       Frame         [-15, -15; 15, 15]
       Terminal {
         Type          Input
@@ -861,10 +840,11 @@ Plecs {
       Type          Subsystem
       Name          "PWM"
       Show          on
-      Position      [915, 220]
+      Position      [1035, 215]
       Direction     up
       Flipped       off
       LabelPosition south
+      CommentOut    DisabledOpenCircuit
       Frame         [-25, -15; 25, 15]
       SampleTime    "-1"
       CodeGenDiscretizationMethod "2"
@@ -884,16 +864,16 @@ Plecs {
         Direction     right
       }
       Schematic {
-        Location      [415, 55; 698, 223]
+        Location      [1056, 375; 1441, 642]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
         BrowserWidth  100
         Component {
           Type          Input
-          Name          "In1"
+          Name          "vabc*"
           Show          on
-          Position      [60, 80]
+          Position      [35, 75]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -912,7 +892,7 @@ Plecs {
           Type          Output
           Name          "Out1"
           Show          on
-          Position      [220, 80]
+          Position      [310, 70]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -927,12 +907,2158 @@ Plecs {
             Show          off
           }
         }
+        Component {
+          Type          TriangleGenerator
+          Name          "Triangular Wave"
+          Show          on
+          Position      [40, 170]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Min"
+            Value         "-0.5"
+            Show          off
+          }
+          Parameter {
+            Variable      "Max"
+            Value         "0.5"
+            Show          off
+          }
+          Parameter {
+            Variable      "f"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "DutyCycle"
+            Value         "0.5"
+            Show          off
+          }
+          Parameter {
+            Variable      "Delay"
+            Value         "0"
+            Show          off
+          }
+        }
+        Component {
+          Type          SignalDemux
+          Name          "Demux"
+          Show          off
+          Position      [90, 75]
+          Direction     right
+          Flipped       on
+          LabelPosition south
+          Parameter {
+            Variable      "Width"
+            Value         "3"
+            Show          off
+          }
+        }
         Connection {
           Type          Signal
-          SrcComponent  "In1"
+          SrcComponent  "vabc*"
           SrcTerminal   1
-          DstComponent  "Out1"
+          DstComponent  "Demux"
           DstTerminal   1
+        }
+      }
+    }
+    Component {
+      Type          Constant
+      Name          "omega_0"
+      Show          on
+      Position      [190, 290]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      CommentOut    DisabledOpenCircuit
+      Frame         [-10, -10; 10, 10]
+      Parameter {
+        Variable      "Value"
+        Value         "50"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Subsystem
+      Name          "trans1"
+      Show          on
+      Position      [655, 565]
+      Direction     up
+      Flipped       off
+      LabelPosition none
+      Frame         [-65, -45; 65, 45]
+      SampleTime    "-1"
+      CodeGenDiscretizationMethod "2"
+      CodeGenTarget "Generic"
+      MaskDisplayLang "2"
+      MaskIconFrame on
+      MaskIconOpaque off
+      MaskIconRotates on
+      Terminal {
+        Type          Output
+        Position      [69, -25]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-65, -25]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-65, -5]
+        Direction     left
+      }
+      Schematic {
+        Location      [429, 209; 1015, 491]
+        ZoomFactor    1
+        SliderPosition [0, 0]
+        ShowBrowser   off
+        BrowserWidth  100
+        Component {
+          Type          Subsystem
+          Name          "abc-alfabeta"
+          Show          on
+          Position      [170, 90]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Frame         [-25, -20; 25, 20]
+          SampleTime    "-1"
+          CodeGenDiscretizationMethod "2"
+          CodeGenTarget "Generic"
+          MaskDisplayLang "2"
+          MaskIconFrame on
+          MaskIconOpaque off
+          MaskIconRotates on
+          Terminal {
+            Type          Input
+            Position      [-25, -5]
+            Direction     left
+          }
+          Terminal {
+            Type          Output
+            Position      [29, -5]
+            Direction     right
+          }
+          Terminal {
+            Type          Input
+            Position      [-25, 5]
+            Direction     left
+          }
+          Terminal {
+            Type          Input
+            Position      [-25, 15]
+            Direction     left
+          }
+          Terminal {
+            Type          Output
+            Position      [29, 5]
+            Direction     right
+          }
+          Schematic {
+            Location      [1264, 523; 1777, 735]
+            ZoomFactor    0.873846
+            SliderPosition [0, 0]
+            ShowBrowser   off
+            BrowserWidth  100
+            Component {
+              Type          Input
+              Name          "a"
+              Show          on
+              Position      [30, 70]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "1"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Output
+              Name          "alfa"
+              Show          on
+              Position      [260, 75]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "2"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Input
+              Name          "b"
+              Show          on
+              Position      [30, 100]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "3"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Input
+              Name          "c"
+              Show          on
+              Position      [30, 130]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "4"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Output
+              Name          "beta"
+              Show          on
+              Position      [260, 115]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "5"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Gain
+              Name          "Matriz"
+              Show          on
+              Position      [160, 80]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "K"
+                Value         "[1, -1/2, -1/2; 0, sqrt(3)/2, - sqrt(3)/2]"
+                Show          off
+              }
+              Parameter {
+                Variable      "Multiplication"
+                Value         "2"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "11"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataTypeOverflowMode"
+                Value         "1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Gain
+              Name          "Gain1"
+              Show          on
+              Position      [115, 80]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "K"
+                Value         "2/3"
+                Show          off
+              }
+              Parameter {
+                Variable      "Multiplication"
+                Value         "2"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "11"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataTypeOverflowMode"
+                Value         "1"
+                Show          off
+              }
+            }
+            Component {
+              Type          SignalMux
+              Name          "Mux"
+              Show          off
+              Position      [80, 80]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Width"
+                Value         "3"
+                Show          off
+              }
+            }
+            Component {
+              Type          SignalDemux
+              Name          "Demux"
+              Show          off
+              Position      [205, 80]
+              Direction     right
+              Flipped       on
+              LabelPosition south
+              Parameter {
+                Variable      "Width"
+                Value         "2"
+                Show          off
+              }
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Gain1"
+              SrcTerminal   2
+              DstComponent  "Matriz"
+              DstTerminal   1
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "a"
+              SrcTerminal   1
+              DstComponent  "Mux"
+              DstTerminal   2
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "b"
+              SrcTerminal   1
+              Points        [60, 100; 60, 80]
+              DstComponent  "Mux"
+              DstTerminal   3
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "c"
+              SrcTerminal   1
+              Points        [65, 130]
+              DstComponent  "Mux"
+              DstTerminal   4
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Demux"
+              SrcTerminal   2
+              DstComponent  "alfa"
+              DstTerminal   1
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Demux"
+              SrcTerminal   3
+              Points        [210, 115]
+              DstComponent  "beta"
+              DstTerminal   1
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Mux"
+              SrcTerminal   1
+              DstComponent  "Gain1"
+              DstTerminal   1
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Matriz"
+              SrcTerminal   2
+              DstComponent  "Demux"
+              DstTerminal   1
+            }
+          }
+        }
+        Component {
+          Type          ConfigurableSubsystem
+          Name          "alfabeta-dq"
+          Show          on
+          Position      [340, 90]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Frame         [-25, -20; 25, 20]
+          SampleTime    "-1"
+          CodeGenDiscretizationMethod "2"
+          CodeGenTarget "Generic"
+          MaskDisplayLang "2"
+          MaskIconFrame on
+          MaskIconOpaque off
+          MaskIconRotates on
+          Terminal {
+            Type          Input
+            Position      [-25, -5]
+            Direction     left
+          }
+          Terminal {
+            Type          Output
+            Position      [29, -5]
+            Direction     right
+          }
+          Terminal {
+            Type          Input
+            Position      [-25, 5]
+            Direction     left
+          }
+          Terminal {
+            Type          Output
+            Position      [29, 5]
+            Direction     right
+          }
+          Terminal {
+            Type          Input
+            Position      [-25, 15]
+            Direction     left
+          }
+          TerminalNames { "alfa", "d", "beta", "q", "theta" }
+          Location      [1091, 185; 1713, 573]
+          ZoomFactor    1
+          SliderPosition [0, 0]
+          ShowBrowser   off
+          BrowserWidth  221
+          Configurations {
+            Name          "Configuration 1"
+            Schematic {
+              Component {
+                Type          Input
+                Name          "alfa"
+                Show          on
+                Position      [50, 60]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Index"
+                  Value         "1"
+                  Show          on
+                }
+                Parameter {
+                  Variable      "Width"
+                  Value         "-1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Output
+                Name          "d"
+                Show          on
+                Position      [460, 330]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Index"
+                  Value         "2"
+                  Show          on
+                }
+                Parameter {
+                  Variable      "Width"
+                  Value         "-1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Input
+                Name          "beta"
+                Show          on
+                Position      [50, 100]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Index"
+                  Value         "3"
+                  Show          on
+                }
+                Parameter {
+                  Variable      "Width"
+                  Value         "-1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Output
+                Name          "q"
+                Show          on
+                Position      [545, 65]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Index"
+                  Value         "4"
+                  Show          on
+                }
+                Parameter {
+                  Variable      "Width"
+                  Value         "-1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Input
+                Name          "theta"
+                Show          on
+                Position      [195, 145]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Index"
+                  Value         "5"
+                  Show          on
+                }
+                Parameter {
+                  Variable      "Width"
+                  Value         "-1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Trigonometry
+                Name          "Trigonometric\nFunction"
+                Show          on
+                Position      [265, 145]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Operator"
+                  Value         "1"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "Unit"
+                  Value         "1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Trigonometry
+                Name          "Trigonometric\nFunction1"
+                Show          on
+                Position      [265, 225]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Operator"
+                  Value         "2"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "Unit"
+                  Value         "1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          SignalMux
+                Name          "Mux"
+                Show          off
+                Position      [115, 65]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Width"
+                  Value         "2"
+                  Show          off
+                }
+              }
+              Component {
+                Type          SignalMux
+                Name          "Mux1"
+                Show          off
+                Position      [390, 160]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Width"
+                  Value         "2"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Gain
+                Name          "Gain"
+                Show          on
+                Position      [345, 145]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "K"
+                  Value         "-1"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "Multiplication"
+                  Value         "1"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "DataType"
+                  Value         "11"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "DataTypeOverflowMode"
+                  Value         "1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          SignalMux
+                Name          "Mux2"
+                Show          off
+                Position      [340, 285]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Width"
+                  Value         "2"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Product
+                Name          "Product1"
+                Show          off
+                Position      [400, 65]
+                Direction     up
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "IconShape"
+                  Value         "2"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "Inputs"
+                  Value         "|**"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "DataType"
+                  Value         "11"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "DataTypeOverflowMode"
+                  Value         "1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Product
+                Name          "Product2"
+                Show          off
+                Position      [355, 330]
+                Direction     up
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "IconShape"
+                  Value         "2"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "Inputs"
+                  Value         "*|*"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "DataType"
+                  Value         "11"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "DataTypeOverflowMode"
+                  Value         "1"
+                  Show          off
+                }
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "theta"
+                SrcTerminal   1
+                Points        [225, 145]
+                Branch {
+                  DstComponent  "Trigonometric\nFunction"
+                  DstTerminal   1
+                }
+                Branch {
+                  Points        [225, 225]
+                  DstComponent  "Trigonometric\nFunction1"
+                  DstTerminal   1
+                }
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "alfa"
+                SrcTerminal   1
+                DstComponent  "Mux"
+                DstTerminal   2
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "beta"
+                SrcTerminal   1
+                Points        [90, 100; 90, 70]
+                DstComponent  "Mux"
+                DstTerminal   3
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "Gain"
+                SrcTerminal   2
+                Points        [370, 145; 370, 155]
+                DstComponent  "Mux1"
+                DstTerminal   2
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "Trigonometric\nFunction"
+                SrcTerminal   2
+                Points        [300, 145]
+                Branch {
+                  DstComponent  "Gain"
+                  DstTerminal   1
+                }
+                Branch {
+                  Points        [300, 290]
+                  DstComponent  "Mux2"
+                  DstTerminal   3
+                }
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "Trigonometric\nFunction1"
+                SrcTerminal   2
+                Points        [315, 225]
+                Branch {
+                  Points        [375, 225]
+                  DstComponent  "Mux1"
+                  DstTerminal   3
+                }
+                Branch {
+                  Points        [315, 280]
+                  DstComponent  "Mux2"
+                  DstTerminal   2
+                }
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "Mux1"
+                SrcTerminal   1
+                DstComponent  "Product1"
+                DstTerminal   3
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "Product1"
+                SrcTerminal   1
+                DstComponent  "q"
+                DstTerminal   1
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "Mux2"
+                SrcTerminal   1
+                Points        [355, 285]
+                DstComponent  "Product2"
+                DstTerminal   2
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "Mux"
+                SrcTerminal   1
+                Points        [140, 65]
+                Branch {
+                  DstComponent  "Product1"
+                  DstTerminal   2
+                }
+                Branch {
+                  Points        [140, 355]
+                  DstComponent  "Product2"
+                  DstTerminal   3
+                }
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "Product2"
+                SrcTerminal   1
+                DstComponent  "d"
+                DstTerminal   1
+              }
+            }
+          }
+          Parameter {
+            Variable      "Configuration"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Output
+          Name          "dq"
+          Show          on
+          Position      [460, 90]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "1"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Input
+          Name          "abc"
+          Show          on
+          Position      [25, 95]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "2"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Input
+          Name          "theta"
+          Show          on
+          Position      [270, 130]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "3"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          SignalDemux
+          Name          "Demux"
+          Show          off
+          Position      [70, 95]
+          Direction     right
+          Flipped       on
+          LabelPosition south
+          Parameter {
+            Variable      "Width"
+            Value         "3"
+            Show          off
+          }
+        }
+        Component {
+          Type          SignalMux
+          Name          "Mux"
+          Show          off
+          Position      [390, 90]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Width"
+            Value         "2"
+            Show          off
+          }
+        }
+        Component {
+          Type          Display
+          Name          "Display"
+          Show          on
+          Position      [295, 195]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Frame         [-31, -11; 31, 11]
+          Parameter {
+            Variable      "Notation"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Precision"
+            Value         "4"
+            Show          off
+          }
+        }
+        Component {
+          Type          Display
+          Name          "Display1"
+          Show          on
+          Position      [295, 245]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Frame         [-31, -11; 31, 11]
+          Parameter {
+            Variable      "Notation"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Precision"
+            Value         "4"
+            Show          off
+          }
+        }
+        Component {
+          Type          Display
+          Name          "Display2"
+          Show          on
+          Position      [470, 160]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Frame         [-31, -11; 31, 11]
+          Parameter {
+            Variable      "Notation"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Precision"
+            Value         "4"
+            Show          off
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "theta"
+          SrcTerminal   1
+          Points        [290, 105]
+          DstComponent  "alfabeta-dq"
+          DstTerminal   5
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "abc"
+          SrcTerminal   1
+          DstComponent  "Demux"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux"
+          SrcTerminal   2
+          DstComponent  "abc-alfabeta"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux"
+          SrcTerminal   3
+          DstComponent  "abc-alfabeta"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux"
+          SrcTerminal   4
+          DstComponent  "abc-alfabeta"
+          DstTerminal   4
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "alfabeta-dq"
+          SrcTerminal   2
+          DstComponent  "Mux"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "alfabeta-dq"
+          SrcTerminal   4
+          DstComponent  "Mux"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "abc-alfabeta"
+          SrcTerminal   2
+          Points        [245, 85]
+          Branch {
+            DstComponent  "alfabeta-dq"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [245, 195]
+            DstComponent  "Display"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "abc-alfabeta"
+          SrcTerminal   5
+          Points        [230, 95]
+          Branch {
+            DstComponent  "alfabeta-dq"
+            DstTerminal   3
+          }
+          Branch {
+            Points        [230, 245]
+            DstComponent  "Display1"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Mux"
+          SrcTerminal   1
+          Points        [415, 90]
+          Branch {
+            DstComponent  "dq"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [415, 160]
+            DstComponent  "Display2"
+            DstTerminal   1
+          }
+        }
+      }
+    }
+    Component {
+      Type          Constant
+      Name          "Constant"
+      Show          on
+      Position      [450, 540]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Frame         [-10, -10; 10, 10]
+      Parameter {
+        Variable      "Value"
+        Value         "[5 10 15]"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          SineGenerator
+      Name          "Sine Wave"
+      Show          on
+      Position      [450, 595]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Amplitude"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Bias"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Frequency"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Phase"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Units"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Display
+      Name          "Display"
+      Show          on
+      Position      [835, 540]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-31, -11; 31, 11]
+      Parameter {
+        Variable      "Notation"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Precision"
+        Value         "4"
+        Show          off
+      }
+    }
+    Component {
+      Type          Subsystem
+      Name          "trans2"
+      Show          on
+      Position      [890, 190]
+      Direction     up
+      Flipped       off
+      LabelPosition none
+      CommentOut    DisabledOpenCircuit
+      Frame         [-65, -45; 65, 45]
+      SampleTime    "-1"
+      CodeGenDiscretizationMethod "2"
+      CodeGenTarget "Generic"
+      MaskDisplayLang "2"
+      MaskIconFrame on
+      MaskIconOpaque off
+      MaskIconRotates on
+      Terminal {
+        Type          Output
+        Position      [69, -25]
+        Direction     right
+      }
+      Terminal {
+        Type          Input
+        Position      [-65, -25]
+        Direction     left
+      }
+      Terminal {
+        Type          Input
+        Position      [-65, -5]
+        Direction     left
+      }
+      Schematic {
+        Location      [937, 193; 1523, 475]
+        ZoomFactor    1
+        SliderPosition [0, 0]
+        ShowBrowser   off
+        BrowserWidth  100
+        Component {
+          Type          Subsystem
+          Name          "abc-alfabeta"
+          Show          on
+          Position      [170, 90]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Frame         [-25, -20; 25, 20]
+          SampleTime    "-1"
+          CodeGenDiscretizationMethod "2"
+          CodeGenTarget "Generic"
+          MaskDisplayLang "2"
+          MaskIconFrame on
+          MaskIconOpaque off
+          MaskIconRotates on
+          Terminal {
+            Type          Input
+            Position      [-25, -5]
+            Direction     left
+          }
+          Terminal {
+            Type          Output
+            Position      [29, -5]
+            Direction     right
+          }
+          Terminal {
+            Type          Input
+            Position      [-25, 5]
+            Direction     left
+          }
+          Terminal {
+            Type          Input
+            Position      [-25, 15]
+            Direction     left
+          }
+          Terminal {
+            Type          Output
+            Position      [29, 5]
+            Direction     right
+          }
+          Schematic {
+            Location      [1264, 523; 1777, 735]
+            ZoomFactor    0.873846
+            SliderPosition [0, 0]
+            ShowBrowser   off
+            BrowserWidth  100
+            Component {
+              Type          Input
+              Name          "a"
+              Show          on
+              Position      [30, 70]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "1"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Output
+              Name          "alfa"
+              Show          on
+              Position      [260, 75]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "2"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Input
+              Name          "b"
+              Show          on
+              Position      [30, 100]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "3"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Input
+              Name          "c"
+              Show          on
+              Position      [30, 130]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "4"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Output
+              Name          "beta"
+              Show          on
+              Position      [260, 115]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "5"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Gain
+              Name          "Matriz"
+              Show          on
+              Position      [160, 80]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "K"
+                Value         "[1, -1/2, -1/2; 0, sqrt(3)/2, - sqrt(3)/2]"
+                Show          off
+              }
+              Parameter {
+                Variable      "Multiplication"
+                Value         "2"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "11"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataTypeOverflowMode"
+                Value         "1"
+                Show          off
+              }
+            }
+            Component {
+              Type          Gain
+              Name          "Gain1"
+              Show          on
+              Position      [115, 80]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "K"
+                Value         "2/3"
+                Show          off
+              }
+              Parameter {
+                Variable      "Multiplication"
+                Value         "2"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataType"
+                Value         "11"
+                Show          off
+              }
+              Parameter {
+                Variable      "DataTypeOverflowMode"
+                Value         "1"
+                Show          off
+              }
+            }
+            Component {
+              Type          SignalMux
+              Name          "Mux"
+              Show          off
+              Position      [80, 80]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Width"
+                Value         "3"
+                Show          off
+              }
+            }
+            Component {
+              Type          SignalDemux
+              Name          "Demux"
+              Show          off
+              Position      [205, 80]
+              Direction     right
+              Flipped       on
+              LabelPosition south
+              Parameter {
+                Variable      "Width"
+                Value         "2"
+                Show          off
+              }
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Gain1"
+              SrcTerminal   2
+              DstComponent  "Matriz"
+              DstTerminal   1
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "a"
+              SrcTerminal   1
+              DstComponent  "Mux"
+              DstTerminal   2
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "b"
+              SrcTerminal   1
+              Points        [60, 100; 60, 80]
+              DstComponent  "Mux"
+              DstTerminal   3
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "c"
+              SrcTerminal   1
+              Points        [65, 130]
+              DstComponent  "Mux"
+              DstTerminal   4
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Demux"
+              SrcTerminal   2
+              DstComponent  "alfa"
+              DstTerminal   1
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Demux"
+              SrcTerminal   3
+              Points        [210, 115]
+              DstComponent  "beta"
+              DstTerminal   1
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Mux"
+              SrcTerminal   1
+              DstComponent  "Gain1"
+              DstTerminal   1
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Matriz"
+              SrcTerminal   2
+              DstComponent  "Demux"
+              DstTerminal   1
+            }
+          }
+        }
+        Component {
+          Type          ConfigurableSubsystem
+          Name          "alfabeta-dq"
+          Show          on
+          Position      [340, 90]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Frame         [-25, -20; 25, 20]
+          SampleTime    "-1"
+          CodeGenDiscretizationMethod "2"
+          CodeGenTarget "Generic"
+          MaskDisplayLang "2"
+          MaskIconFrame on
+          MaskIconOpaque off
+          MaskIconRotates on
+          Terminal {
+            Type          Input
+            Position      [-25, -5]
+            Direction     left
+          }
+          Terminal {
+            Type          Output
+            Position      [29, -5]
+            Direction     right
+          }
+          Terminal {
+            Type          Input
+            Position      [-25, 5]
+            Direction     left
+          }
+          Terminal {
+            Type          Output
+            Position      [29, 5]
+            Direction     right
+          }
+          Terminal {
+            Type          Input
+            Position      [-25, 15]
+            Direction     left
+          }
+          TerminalNames { "alfa", "d", "beta", "q", "theta" }
+          Location      [1091, 242; 1713, 630]
+          ZoomFactor    1
+          SliderPosition [0, 0]
+          ShowBrowser   off
+          BrowserWidth  221
+          Configurations {
+            Name          "Configuration 1"
+            Schematic {
+              Component {
+                Type          Input
+                Name          "alfa"
+                Show          on
+                Position      [20, 60]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Index"
+                  Value         "1"
+                  Show          on
+                }
+                Parameter {
+                  Variable      "Width"
+                  Value         "-1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Output
+                Name          "d"
+                Show          on
+                Position      [405, 330]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Index"
+                  Value         "2"
+                  Show          on
+                }
+                Parameter {
+                  Variable      "Width"
+                  Value         "-1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Input
+                Name          "beta"
+                Show          on
+                Position      [20, 100]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Index"
+                  Value         "3"
+                  Show          on
+                }
+                Parameter {
+                  Variable      "Width"
+                  Value         "-1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Output
+                Name          "q"
+                Show          on
+                Position      [405, 65]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Index"
+                  Value         "4"
+                  Show          on
+                }
+                Parameter {
+                  Variable      "Width"
+                  Value         "-1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Input
+                Name          "theta"
+                Show          on
+                Position      [140, 145]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Index"
+                  Value         "5"
+                  Show          on
+                }
+                Parameter {
+                  Variable      "Width"
+                  Value         "-1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Trigonometry
+                Name          "Trigonometric\nFunction"
+                Show          on
+                Position      [210, 145]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Operator"
+                  Value         "1"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "Unit"
+                  Value         "1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Trigonometry
+                Name          "Trigonometric\nFunction1"
+                Show          on
+                Position      [210, 225]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Operator"
+                  Value         "2"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "Unit"
+                  Value         "1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          SignalMux
+                Name          "Mux"
+                Show          off
+                Position      [60, 65]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Width"
+                  Value         "2"
+                  Show          off
+                }
+              }
+              Component {
+                Type          SignalMux
+                Name          "Mux1"
+                Show          off
+                Position      [335, 160]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Width"
+                  Value         "2"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Gain
+                Name          "Gain"
+                Show          on
+                Position      [290, 145]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "K"
+                  Value         "-1"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "Multiplication"
+                  Value         "1"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "DataType"
+                  Value         "11"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "DataTypeOverflowMode"
+                  Value         "1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          SignalMux
+                Name          "Mux2"
+                Show          off
+                Position      [285, 285]
+                Direction     right
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "Width"
+                  Value         "2"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Product
+                Name          "Product1"
+                Show          off
+                Position      [345, 65]
+                Direction     up
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "IconShape"
+                  Value         "2"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "Inputs"
+                  Value         "|**"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "DataType"
+                  Value         "11"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "DataTypeOverflowMode"
+                  Value         "1"
+                  Show          off
+                }
+              }
+              Component {
+                Type          Product
+                Name          "Product2"
+                Show          off
+                Position      [300, 330]
+                Direction     up
+                Flipped       off
+                LabelPosition south
+                Parameter {
+                  Variable      "IconShape"
+                  Value         "2"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "Inputs"
+                  Value         "*|*"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "DataType"
+                  Value         "11"
+                  Show          off
+                }
+                Parameter {
+                  Variable      "DataTypeOverflowMode"
+                  Value         "1"
+                  Show          off
+                }
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "theta"
+                SrcTerminal   1
+                Points        [170, 145]
+                Branch {
+                  DstComponent  "Trigonometric\nFunction"
+                  DstTerminal   1
+                }
+                Branch {
+                  Points        [170, 225]
+                  DstComponent  "Trigonometric\nFunction1"
+                  DstTerminal   1
+                }
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "alfa"
+                SrcTerminal   1
+                DstComponent  "Mux"
+                DstTerminal   2
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "beta"
+                SrcTerminal   1
+                Points        [45, 100]
+                DstComponent  "Mux"
+                DstTerminal   3
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "Gain"
+                SrcTerminal   2
+                Points        [315, 145; 315, 155]
+                DstComponent  "Mux1"
+                DstTerminal   2
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "Trigonometric\nFunction"
+                SrcTerminal   2
+                Points        [245, 145]
+                Branch {
+                  DstComponent  "Gain"
+                  DstTerminal   1
+                }
+                Branch {
+                  Points        [245, 290]
+                  DstComponent  "Mux2"
+                  DstTerminal   3
+                }
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "Trigonometric\nFunction1"
+                SrcTerminal   2
+                Points        [260, 225]
+                Branch {
+                  Points        [320, 225]
+                  DstComponent  "Mux1"
+                  DstTerminal   3
+                }
+                Branch {
+                  Points        [260, 280]
+                  DstComponent  "Mux2"
+                  DstTerminal   2
+                }
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "Mux1"
+                SrcTerminal   1
+                DstComponent  "Product1"
+                DstTerminal   3
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "Product1"
+                SrcTerminal   1
+                DstComponent  "q"
+                DstTerminal   1
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "Mux2"
+                SrcTerminal   1
+                Points        [300, 285]
+                DstComponent  "Product2"
+                DstTerminal   2
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "Mux"
+                SrcTerminal   1
+                Points        [85, 65]
+                Branch {
+                  DstComponent  "Product1"
+                  DstTerminal   2
+                }
+                Branch {
+                  Points        [85, 355]
+                  DstComponent  "Product2"
+                  DstTerminal   3
+                }
+              }
+              Connection {
+                Type          Signal
+                SrcComponent  "Product2"
+                SrcTerminal   1
+                DstComponent  "d"
+                DstTerminal   1
+              }
+            }
+          }
+          Parameter {
+            Variable      "Configuration"
+            Value         "1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Output
+          Name          "dq"
+          Show          on
+          Position      [460, 90]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "1"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Input
+          Name          "abc"
+          Show          on
+          Position      [25, 95]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "2"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          Input
+          Name          "theta"
+          Show          on
+          Position      [270, 130]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Index"
+            Value         "3"
+            Show          on
+          }
+          Parameter {
+            Variable      "Width"
+            Value         "-1"
+            Show          off
+          }
+        }
+        Component {
+          Type          SignalDemux
+          Name          "Demux"
+          Show          off
+          Position      [70, 95]
+          Direction     right
+          Flipped       on
+          LabelPosition south
+          Parameter {
+            Variable      "Width"
+            Value         "3"
+            Show          off
+          }
+        }
+        Component {
+          Type          SignalMux
+          Name          "Mux"
+          Show          off
+          Position      [390, 90]
+          Direction     right
+          Flipped       off
+          LabelPosition south
+          Parameter {
+            Variable      "Width"
+            Value         "2"
+            Show          off
+          }
+        }
+        Component {
+          Type          Display
+          Name          "Display"
+          Show          on
+          Position      [295, 195]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Frame         [-31, -11; 31, 11]
+          Parameter {
+            Variable      "Notation"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Precision"
+            Value         "4"
+            Show          off
+          }
+        }
+        Component {
+          Type          Display
+          Name          "Display1"
+          Show          on
+          Position      [295, 245]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Frame         [-31, -11; 31, 11]
+          Parameter {
+            Variable      "Notation"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Precision"
+            Value         "4"
+            Show          off
+          }
+        }
+        Component {
+          Type          Display
+          Name          "Display2"
+          Show          on
+          Position      [470, 160]
+          Direction     up
+          Flipped       off
+          LabelPosition south
+          Frame         [-31, -11; 31, 11]
+          Parameter {
+            Variable      "Notation"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "Precision"
+            Value         "4"
+            Show          off
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "theta"
+          SrcTerminal   1
+          Points        [290, 105]
+          DstComponent  "alfabeta-dq"
+          DstTerminal   5
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "abc"
+          SrcTerminal   1
+          DstComponent  "Demux"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux"
+          SrcTerminal   2
+          DstComponent  "abc-alfabeta"
+          DstTerminal   1
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux"
+          SrcTerminal   3
+          DstComponent  "abc-alfabeta"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Demux"
+          SrcTerminal   4
+          DstComponent  "abc-alfabeta"
+          DstTerminal   4
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "alfabeta-dq"
+          SrcTerminal   2
+          DstComponent  "Mux"
+          DstTerminal   2
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "alfabeta-dq"
+          SrcTerminal   4
+          DstComponent  "Mux"
+          DstTerminal   3
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "abc-alfabeta"
+          SrcTerminal   2
+          Points        [245, 85]
+          Branch {
+            DstComponent  "alfabeta-dq"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [245, 195]
+            DstComponent  "Display"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "abc-alfabeta"
+          SrcTerminal   5
+          Points        [230, 95]
+          Branch {
+            DstComponent  "alfabeta-dq"
+            DstTerminal   3
+          }
+          Branch {
+            Points        [230, 245]
+            DstComponent  "Display1"
+            DstTerminal   1
+          }
+        }
+        Connection {
+          Type          Signal
+          SrcComponent  "Mux"
+          SrcTerminal   1
+          Points        [415, 90]
+          Branch {
+            DstComponent  "dq"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [415, 160]
+            DstComponent  "Display2"
+            DstTerminal   1
+          }
         }
       }
     }
@@ -1032,8 +3158,8 @@ Plecs {
         }
       }
       Branch {
-        Points        [785, 145; 785, 225]
-        DstComponent  "3ph->RRF2"
+        Points        [730, 145; 730, 185]
+        DstComponent  "trans2"
         DstTerminal   3
       }
     }
@@ -1041,15 +3167,43 @@ Plecs {
       Type          Signal
       SrcComponent  "CCL"
       SrcTerminal   2
-      DstComponent  "3ph->RRF2"
-      DstTerminal   1
+      Points        [775, 215; 775, 165]
+      DstComponent  "trans2"
+      DstTerminal   2
     }
     Connection {
       Type          Signal
-      SrcComponent  "3ph->RRF2"
-      SrcTerminal   2
-      DstComponent  "PWM"
+      SrcComponent  "omega_0"
+      SrcTerminal   1
+      Points        [235, 290]
+      DstComponent  "Droop control"
+      DstTerminal   5
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Constant"
+      SrcTerminal   1
+      DstComponent  "trans1"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sine Wave"
+      SrcTerminal   1
+      Points        [525, 595; 525, 560]
+      DstComponent  "trans1"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "trans1"
+      SrcTerminal   1
+      DstComponent  "Display"
       DstTerminal   1
     }
+  }
+  Script {
+    Name          "Script"
+    Script        ""
   }
 }
