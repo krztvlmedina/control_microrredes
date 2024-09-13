@@ -66,8 +66,8 @@ Plecs {
   ScriptsDialogSplitterPos "47"
   Schematic {
     Location      [0, 23; 1920, 1001]
-    ZoomFactor    2.57014
-    SliderPosition [-1, -1]
+    ZoomFactor    1
+    SliderPosition [0, 0]
     ShowBrowser   on
     BrowserWidth  322
     Component {
@@ -1035,15 +1035,6 @@ Plecs {
             Show          off
           }
         }
-        Component {
-          Type          Ground
-          Name          "Ground"
-          Show          off
-          Position      [215, 255]
-          Direction     up
-          Flipped       off
-          LabelPosition east
-        }
         Connection {
           Type          Wire
           SrcComponent  "R1"
@@ -1092,10 +1083,6 @@ Plecs {
           Branch {
             DstComponent  "L8"
             DstTerminal   2
-          }
-          Branch {
-            DstComponent  "Ground"
-            DstTerminal   1
           }
         }
         Connection {
@@ -1156,7 +1143,7 @@ Plecs {
       Schematic {
         Location      [0, 27; 1920, 1005]
         ZoomFactor    1.30958
-        SliderPosition [0, 139]
+        SliderPosition [0, 66]
         ShowBrowser   off
         BrowserWidth  322
         Component {
@@ -2007,7 +1994,7 @@ Plecs {
               Frame         [-30, -15; 30, 15]
               Parameter {
                 Variable      "Numerator"
-                Value         "[K*omega_lpf]"
+                Value         "[omega_lpf]"
                 Show          off
               }
               Parameter {
@@ -2092,7 +2079,7 @@ Plecs {
               Frame         [-30, -15; 30, 15]
               Parameter {
                 Variable      "Numerator"
-                Value         "[K*omega_lpf]"
+                Value         "[omega_lpf]"
                 Show          off
               }
               Parameter {
@@ -2861,6 +2848,14 @@ Plecs {
               SrcTerminal   2
               DstComponent  "Pi"
               DstTerminal   1
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Demux"
+              SrcTerminal   3
+              Points        [300, 105; 300, 110]
+              DstComponent  "Mux"
+              DstTerminal   3
             }
           }
         }
@@ -3747,7 +3742,7 @@ Plecs {
           Type          From
           Name          "From6"
           Show          off
-          Position      [265, 585]
+          Position      [125, 585]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -4065,11 +4060,11 @@ Plecs {
           Direction     up
           Flipped       off
           LabelPosition south
-          Location      [0, 23; 1920, 1020]
+          Location      [0, 27; 1920, 1044]
           State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
 "wBvAG0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
 "AA/////wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAA"
-"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAB4AAAAPK"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAB4AAAAPe"
 "AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
@@ -4183,15 +4178,15 @@ Plecs {
           Type          Scope
           Name          "Voltaje\ncomandado"
           Show          on
-          Position      [335, 540]
+          Position      [195, 540]
           Direction     down
           Flipped       off
           LabelPosition north
-          Location      [0, 27; 1920, 1044]
+          Location      [0, 23; 1920, 1020]
           State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
 "wBvAG0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
 "AA/////wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAeAAAA"
-"AffwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABQAP///wAAB4AAAANd"
+"AffwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABQAP///wAAB4AAAANJ"
 "AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
@@ -4405,7 +4400,7 @@ Plecs {
           SrcComponent  "Components/Control/Transformations/RRF->3ph"
           Name          "RRF->3ph"
           Show          on
-          Position      [335, 590]
+          Position      [195, 590]
           Direction     up
           Flipped       off
           LabelPosition south
@@ -4430,7 +4425,7 @@ Plecs {
           Type          From
           Name          "From10"
           Show          off
-          Position      [265, 605]
+          Position      [125, 605]
           Direction     right
           Flipped       off
           LabelPosition south
@@ -4501,7 +4496,7 @@ Plecs {
           LabelPosition southSoutheast
           Parameter {
             Variable      "voltage"
-            Value         "1"
+            Value         "2"
             Show          off
           }
         }
@@ -4568,17 +4563,17 @@ Plecs {
         }
         Component {
           Type          Scope
-          Name          "Frecuencia\nelectrica"
+          Name          "Angulo\nelectrico"
           Show          on
           Position      [405, 20]
           Direction     up
           Flipped       off
           LabelPosition south
-          Location      [0, 23; 1920, 1020]
+          Location      [0, 27; 1920, 1044]
           State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
 "wBvAG0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
 "AA/////wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAA"
-"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAB4AAAAPK"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAB4AAAAPe"
 "AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
@@ -4593,7 +4588,7 @@ Plecs {
           TimeRange     "0.0"
           ScrollingMode "1"
           SingleTimeAxis "1"
-          Open          "1"
+          Open          "0"
           Ts            "-1"
           SampleLimit   "0"
           XAxisLabel    "Time / s"
@@ -4637,7 +4632,7 @@ Plecs {
           LabelPosition southSoutheast
           Parameter {
             Variable      "voltage"
-            Value         "1"
+            Value         "2"
             Show          off
           }
         }
@@ -5109,15 +5104,6 @@ Plecs {
           }
         }
         Component {
-          Type          Ground
-          Name          "Ground"
-          Show          off
-          Position      [830, 845]
-          Direction     up
-          Flipped       off
-          LabelPosition east
-        }
-        Component {
           Type          Scope
           Name          "Corriente\nreferencia"
           Show          on
@@ -5331,17 +5317,17 @@ Plecs {
           Direction     up
           Flipped       off
           LabelPosition south
-          Location      [0, 27; 1920, 1054]
+          Location      [0, 27; 1920, 1064]
           State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAb"
 "wBvAG0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAA"
 "AA/////wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAA"
-"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAB4AAAAPo"
+"AAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAB4AAAAPy"
 "AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AA"
 "AAAAAAAAA=="
           SavedViews    "AAAAAgAAAAA="
           HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJA"
-"AAACAAAAGQAAAAJAAAAZAAAAAYAAABkAAAABwAAAGQAAAAEAAAAZAAAAAUAAABkAAAAAgAAAGQAAA"
-"ADAAAAZAAAAAEAAABkAAAAsAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC"
+"AAAAwAAAGQAAAACAAAAZAAAAAkAAABkAAAACAAAAGQAAAAFAAAAZAAAAAQAAABkAAAABwAAAGQAAA"
+"AGAAAAZAAAAAEAAABkAAAAsAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC"
 "MAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAA"
 "AAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAA"
 "AAAAAAkAAAAAQAAAAAAAAPoAAAAACQ="
@@ -5350,7 +5336,7 @@ Plecs {
           TimeRange     "0.0"
           ScrollingMode "1"
           SingleTimeAxis "1"
-          Open          "0"
+          Open          "1"
           Ts            "-1"
           SampleLimit   "0"
           XAxisLabel    "Time / s"
@@ -5492,8 +5478,8 @@ Plecs {
               }
               Schematic {
                 Location      [0, 27; 1920, 1005]
-                ZoomFactor    1.96257
-                SliderPosition [-1, 0]
+                ZoomFactor    1.49863
+                SliderPosition [0, 0]
                 ShowBrowser   off
                 BrowserWidth  100
                 Component {
@@ -5942,7 +5928,7 @@ Plecs {
                   Frame         [-30, -15; 30, 15]
                   Parameter {
                     Variable      "Numerator"
-                    Value         "[2*0.75*0.22 22^2]"
+                    Value         "[2*0.75*8 8^2]"
                     Show          off
                   }
                   Parameter {
@@ -6669,7 +6655,7 @@ Plecs {
               LabelPosition south
               Parameter {
                 Variable      "SwitchState"
-                Value         "2"
+                Value         "1"
                 Show          off
               }
             }
@@ -6696,22 +6682,6 @@ Plecs {
                 DstComponent  "3ph->SRF"
                 DstTerminal   1
               }
-            }
-            Connection {
-              Type          Signal
-              SrcComponent  "Demux1"
-              SrcTerminal   3
-              Points        [225, 155; 225, 120; 250, 120]
-              DstComponent  "Trigonometric\nFunction"
-              DstTerminal   1
-            }
-            Connection {
-              Type          Signal
-              SrcComponent  "Demux1"
-              SrcTerminal   2
-              Points        [220, 145; 220, 115; 240, 115]
-              DstComponent  "Trigonometric\nFunction"
-              DstTerminal   3
             }
             Connection {
               Type          Signal
@@ -6765,6 +6735,22 @@ Plecs {
               SrcComponent  "Manual Switch1"
               SrcTerminal   1
               DstComponent  "theta"
+              DstTerminal   1
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Demux1"
+              SrcTerminal   2
+              Points        [240, 145]
+              DstComponent  "Trigonometric\nFunction"
+              DstTerminal   3
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Demux1"
+              SrcTerminal   3
+              Points        [250, 155]
+              DstComponent  "Trigonometric\nFunction"
               DstTerminal   1
             }
           }
@@ -7084,13 +7070,199 @@ Plecs {
           }
         }
         Component {
-          Type          Ground
-          Name          "Ground1"
-          Show          off
-          Position      [535, 790]
+          Type          Subsystem
+          Name          "Sub"
+          Show          on
+          Position      [220, 710]
           Direction     up
           Flipped       off
-          LabelPosition east
+          LabelPosition none
+          Frame         [-20, -20; 20, 20]
+          SampleTime    "-1"
+          CodeGenDiscretizationMethod "2"
+          CodeGenTarget "Generic"
+          MaskDisplayLang "2"
+          MaskIconFrame on
+          MaskIconOpaque off
+          MaskIconRotates on
+          Terminal {
+            Type          Output
+            Position      [24, -10]
+            Direction     right
+          }
+          Schematic {
+            Location      [0, 23; 1920, 1001]
+            ZoomFactor    2.94117
+            SliderPosition [0, 0]
+            ShowBrowser   off
+            BrowserWidth  100
+            Component {
+              Type          SineGenerator
+              Name          "Sine Wave"
+              Show          on
+              Position      [120, 70]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Amplitude"
+                Value         "200"
+                Show          off
+              }
+              Parameter {
+                Variable      "Bias"
+                Value         "0"
+                Show          off
+              }
+              Parameter {
+                Variable      "Frequency"
+                Value         "omega0_rad"
+                Show          off
+              }
+              Parameter {
+                Variable      "Phase"
+                Value         "0"
+                Show          off
+              }
+              Parameter {
+                Variable      "Units"
+                Value         "1"
+                Show          off
+              }
+            }
+            Component {
+              Type          SineGenerator
+              Name          "Sine Wave3"
+              Show          on
+              Position      [125, 130]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Amplitude"
+                Value         "200"
+                Show          off
+              }
+              Parameter {
+                Variable      "Bias"
+                Value         "0"
+                Show          off
+              }
+              Parameter {
+                Variable      "Frequency"
+                Value         "omega0_rad"
+                Show          off
+              }
+              Parameter {
+                Variable      "Phase"
+                Value         "2*pi/3"
+                Show          off
+              }
+              Parameter {
+                Variable      "Units"
+                Value         "1"
+                Show          off
+              }
+            }
+            Component {
+              Type          SineGenerator
+              Name          "Sine Wave4"
+              Show          on
+              Position      [125, 190]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Amplitude"
+                Value         "200"
+                Show          off
+              }
+              Parameter {
+                Variable      "Bias"
+                Value         "0"
+                Show          off
+              }
+              Parameter {
+                Variable      "Frequency"
+                Value         "omega0_rad"
+                Show          off
+              }
+              Parameter {
+                Variable      "Phase"
+                Value         "-2*pi/3"
+                Show          off
+              }
+              Parameter {
+                Variable      "Units"
+                Value         "1"
+                Show          off
+              }
+            }
+            Component {
+              Type          SignalMux
+              Name          "Mux"
+              Show          off
+              Position      [260, 125]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Width"
+                Value         "3"
+                Show          off
+              }
+            }
+            Component {
+              Type          Output
+              Name          "vabc_test"
+              Show          on
+              Position      [315, 125]
+              Direction     right
+              Flipped       off
+              LabelPosition south
+              Parameter {
+                Variable      "Index"
+                Value         "1"
+                Show          on
+              }
+              Parameter {
+                Variable      "Width"
+                Value         "-1"
+                Show          off
+              }
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Sine Wave"
+              SrcTerminal   1
+              Points        [185, 70; 185, 115]
+              DstComponent  "Mux"
+              DstTerminal   2
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Sine Wave3"
+              SrcTerminal   1
+              Points        [195, 130; 195, 125]
+              DstComponent  "Mux"
+              DstTerminal   3
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Sine Wave4"
+              SrcTerminal   1
+              Points        [200, 190; 200, 135]
+              DstComponent  "Mux"
+              DstTerminal   4
+            }
+            Connection {
+              Type          Signal
+              SrcComponent  "Mux"
+              SrcTerminal   1
+              DstComponent  "vabc_test"
+              DstTerminal   1
+            }
+          }
         }
         Connection {
           Type          Wire
@@ -7109,15 +7281,7 @@ Plecs {
               DstTerminal   2
             }
             Branch {
-              Points        [830, 790]
-              Branch {
-                DstComponent  "3ph Meter"
-                DstTerminal   9
-              }
-              Branch {
-                DstComponent  "Ground"
-                DstTerminal   1
-              }
+              Points        [830, 790; 830, 750]
             }
           }
         }
@@ -7457,7 +7621,7 @@ Plecs {
           Type          Signal
           SrcComponent  "From10"
           SrcTerminal   1
-          Points        [300, 605; 300, 595]
+          Points        [160, 605; 160, 595]
           DstComponent  "RRF->3ph"
           DstTerminal   3
         }
@@ -7541,9 +7705,9 @@ Plecs {
           Type          Signal
           SrcComponent  "RRF->3ph"
           SrcTerminal   2
-          Points        [390, 590]
+          Points        [285, 590]
           Branch {
-            Points        [390, 540]
+            Points        [285, 540]
             DstComponent  "Voltaje\ncomandado"
             DstTerminal   1
           }
@@ -7690,7 +7854,7 @@ Plecs {
           }
           Branch {
             Points        [320, 20]
-            DstComponent  "Frecuencia\nelectrica"
+            DstComponent  "Angulo\nelectrico"
             DstTerminal   1
           }
         }
@@ -7698,15 +7862,7 @@ Plecs {
           Type          Wire
           SrcComponent  "Fuente\ntrifasica"
           SrcTerminal   4
-          Points        [535, 750]
-          Branch {
-            DstComponent  "3ph Meter1"
-            DstTerminal   9
-          }
-          Branch {
-            DstComponent  "Ground1"
-            DstTerminal   1
-          }
+          Points        [600, 750]
         }
       }
     }
@@ -9670,7 +9826,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "Time"
-        Value         "30"
+        Value         "5"
         Show          off
       }
       Parameter {
@@ -20563,7 +20719,7 @@ Plecs {
       LabelPosition westSouthwest
       Parameter {
         Variable      "voltage"
-        Value         "1"
+        Value         "2"
         Show          off
       }
     }
@@ -20627,15 +20783,6 @@ Plecs {
           BaselineValue 0
         }
       }
-    }
-    Component {
-      Type          Ground
-      Name          "Ground"
-      Show          off
-      Position      [835, 375]
-      Direction     up
-      Flipped       off
-      LabelPosition east
     }
     Component {
       Type          Subsystem
@@ -21881,14 +22028,6 @@ Plecs {
       SrcTerminal   7
       DstComponent  "Scope"
       DstTerminal   1
-    }
-    Connection {
-      Type          Wire
-      SrcComponent  "Ground"
-      SrcTerminal   1
-      Points        [835, 280]
-      DstComponent  "3ph Meter"
-      DstTerminal   9
     }
     Connection {
       Type          Signal
