@@ -56,7 +56,7 @@ Plecs {
   ScriptsDialogGeometry "[764 399 446 243]"
   ScriptsDialogSplitterPos "47"
   Schematic {
-    Location      [0, 23; 1920, 1001]
+    Location      [0, 27; 1920, 1005]
     ZoomFactor    0.999997
     SliderPosition [0, 0]
     ShowBrowser   on
@@ -2047,19 +2047,20 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 23; 1920, 1020]
+      Location      [0, 27; 1920, 1034]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAeAAAAAffw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABQAP///wAAB4AAAANJAAAA"
+"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAeAAAAAW/w"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABQAP///wAAB4AAAAN1AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL8AMAAAAGAAAAC"
-"AAAAGQAAAAFAAAAZAAAAAQAAABkAAAABwAAAGQAAAAGAAAAZAAAAAkAAABkAAAHgAAAAAsBAAABAA"
-"AAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADdAAAAAQAAAAAAAABkAAAAAQAAAAAAAABkAAA"
-"AAQAAAAAAAABkAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
-"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAV3AAAAAQAAAAAAAAPoAAAAACQ="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"gAAAGQAAAADAAAAZAAAAAEAAABkAAAABgAAAGQAAAAHAAAAZAAAAAQAAABkAAAABQAAAGQAAAAIAA"
+"AAZAAAAAkAAABkAAAHbwAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAADdAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AaSAAAAAQAAAAAAAAPoAAAAACQ="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
@@ -3106,7 +3107,7 @@ Plecs {
             Direction     right
           }
           Schematic {
-            Location      [0, 27; 1920, 1005]
+            Location      [0, 23; 1920, 1001]
             ZoomFactor    1.49863
             SliderPosition [0, 0]
             ShowBrowser   off
@@ -3411,18 +3412,18 @@ Plecs {
               Direction     up
               Flipped       off
               LabelPosition south
-              Location      [0, 23; 1920, 1020]
+              Location      [0, 27; 1920, 1034]
               State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQA"
 "FoAbwBvAG0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcw"
 "AAAAAA/////wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAA"
 "AAAAAAPwBAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAB4AA"
-"AAPKAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP///"
+"AAPUAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP///"
 "/8AAAAAAAAAAA=="
               SavedViews    "AAAAAgAAAAA="
               HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAA"
-"AAJAAAACAAAAGQAAAABAAAAZAAAAAMAAABkAAAAAgAAAGQAAAAFAAAAZAAAAAQAAABkAAAABwAAAG"
-"QAAAAGAAAAZAAAAAkAAABkAAAA2gAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAs"
-"AAAC2AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAA"
+"AAJAAAAAgAAAGQAAAADAAAAZAAAAAEAAABkAAAABgAAAGQAAAAHAAAAZAAAAAQAAABkAAAABQAAAG"
+"QAAAAIAAAAZAAAAAkAAABkAAAAhAAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAs"
+"AAABgAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAA"
 "AAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA"
 "QAAAAAAAAAkAAAAAQAAAAAAAAPoAAAAACQ="
               PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
@@ -3465,9 +3466,10 @@ Plecs {
               }
             }
             Component {
-              Type          Reference
-              SrcComponent  "Componentes/Transformada abc\\/dq"
-              Name          "Transformada abc/dq"
+              Type          ModelReference
+              SrcComponent  "./Transformada abc\\/dq"
+              SrcModel      ""
+              Name          "Ref2"
               Show          on
               Position      [500, 200]
               Direction     up
@@ -3501,7 +3503,7 @@ Plecs {
               }
               Branch {
                 Points        [890, 275; 430, 275; 430, 210]
-                DstComponent  "Transformada abc/dq"
+                DstComponent  "Ref2"
                 DstTerminal   3
               }
             }
@@ -3509,12 +3511,12 @@ Plecs {
               Type          Signal
               SrcComponent  "vabc"
               SrcTerminal   1
-              DstComponent  "Transformada abc/dq"
+              DstComponent  "Ref2"
               DstTerminal   2
             }
             Connection {
               Type          Signal
-              SrcComponent  "Transformada abc/dq"
+              SrcComponent  "Ref2"
               SrcTerminal   1
               DstComponent  "Demux2"
               DstTerminal   1
@@ -9345,7 +9347,7 @@ Plecs {
             Type          Signal
             SrcComponent  "From13"
             SrcTerminal   1
-            Points        [125, 415]
+            Points        [125, 415; 125, 410]
             DstComponent  "Ref2"
             DstTerminal   3
           }
@@ -9499,7 +9501,7 @@ Plecs {
             Type          Signal
             SrcComponent  "From7"
             SrcTerminal   1
-            Points        [140, 170]
+            Points        [140, 170; 140, 150]
             DstComponent  "Ref"
             DstTerminal   3
           }
@@ -9589,7 +9591,7 @@ Plecs {
             Type          Signal
             SrcComponent  "From14"
             SrcTerminal   1
-            Points        [130, 305]
+            Points        [130, 305; 130, 300]
             DstComponent  "Ref1"
             DstTerminal   3
           }
