@@ -59,7 +59,7 @@ Plecs {
   Schematic {
     Location      [0, 27; 1920, 1005]
     ZoomFactor    1.30957
-    SliderPosition [176, -1]
+    SliderPosition [-1, -1]
     ShowBrowser   on
     BrowserWidth  322
     Component {
@@ -667,7 +667,7 @@ Plecs {
       Frame         [-10, -10; 10, 10]
       Parameter {
         Variable      "Value"
-        Value         "0"
+        Value         "1"
         Show          off
       }
       Parameter {
@@ -5731,7 +5731,7 @@ Plecs {
             Type          Goto
             Name          "Goto3"
             Show          off
-            Position      [895, 245]
+            Position      [925, 210]
             Direction     right
             Flipped       off
             LabelPosition south
@@ -7490,7 +7490,7 @@ Plecs {
             Type          Integrator
             Name          "Integrator"
             Show          on
-            Position      [815, 245]
+            Position      [815, 210]
             Direction     right
             Flipped       off
             LabelPosition south
@@ -7949,7 +7949,7 @@ Plecs {
             Type          Scope
             Name          "Frecuencia\nreferencia"
             Show          on
-            Position      [780, 140]
+            Position      [780, 105]
             Direction     up
             Flipped       off
             LabelPosition south
@@ -8593,7 +8593,7 @@ Plecs {
             Type          Scope
             Name          "Angulo\nelectrico1"
             Show          on
-            Position      [875, 140]
+            Position      [875, 105]
             Direction     up
             Flipped       off
             LabelPosition south
@@ -8754,7 +8754,7 @@ Plecs {
             Type          Goto
             Name          "Goto8"
             Show          off
-            Position      [775, 215]
+            Position      [775, 180]
             Direction     right
             Flipped       off
             LabelPosition south
@@ -9225,6 +9225,35 @@ Plecs {
               Show          off
             }
           }
+          Component {
+            Type          Gain
+            Name          "Gain"
+            Show          on
+            Position      [740, 240]
+            Direction     up
+            Flipped       off
+            LabelPosition east
+            Parameter {
+              Variable      "K"
+              Value         "2*pi"
+              Show          off
+            }
+            Parameter {
+              Variable      "Multiplication"
+              Value         "1"
+              Show          off
+            }
+            Parameter {
+              Variable      "DataType"
+              Value         "11"
+              Show          off
+            }
+            Parameter {
+              Variable      "DataTypeOverflowMode"
+              Value         "1"
+              Show          off
+            }
+          }
           Connection {
             Type          Wire
             SrcComponent  "C2"
@@ -9651,7 +9680,7 @@ Plecs {
             Type          Signal
             SrcComponent  "Integrator"
             SrcTerminal   2
-            Points        [845, 245]
+            Points        [845, 210]
             Branch {
               DstComponent  "Goto3"
               DstTerminal   1
@@ -9667,28 +9696,6 @@ Plecs {
             SrcTerminal   2
             DstComponent  "Goto4"
             DstTerminal   1
-          }
-          Connection {
-            Type          Signal
-            SrcComponent  "Droop control"
-            SrcTerminal   2
-            Points        [740, 285; 740, 245]
-            Branch {
-              Points        [755, 245]
-              Branch {
-                DstComponent  "Integrator"
-                DstTerminal   1
-              }
-              Branch {
-                DstComponent  "Goto8"
-                DstTerminal   1
-              }
-            }
-            Branch {
-              Points        [740, 140]
-              DstComponent  "Frecuencia\nreferencia"
-              DstTerminal   1
-            }
           }
           Connection {
             Type          Signal
@@ -9788,6 +9795,36 @@ Plecs {
             Points        [995, 275]
             DstComponent  "VCL"
             DstTerminal   1
+          }
+          Connection {
+            Type          Signal
+            SrcComponent  "Droop control"
+            SrcTerminal   2
+            Points        [740, 285]
+            DstComponent  "Gain"
+            DstTerminal   1
+          }
+          Connection {
+            Type          Signal
+            SrcComponent  "Gain"
+            SrcTerminal   2
+            Points        [740, 210]
+            Branch {
+              Points        [755, 210]
+              Branch {
+                DstComponent  "Integrator"
+                DstTerminal   1
+              }
+              Branch {
+                DstComponent  "Goto8"
+                DstTerminal   1
+              }
+            }
+            Branch {
+              Points        [740, 105]
+              DstComponent  "Frecuencia\nreferencia"
+              DstTerminal   1
+            }
           }
         }
       }
@@ -11074,12 +11111,12 @@ Plecs {
       }
       Parameter {
         Variable      "Chi_vcl"
-        Value         "0.8"
+        Value         "0.72"
         Show          off
       }
       Parameter {
         Variable      "omegan_vcl"
-        Value         "50"
+        Value         "75"
         Show          off
       }
       Parameter {
@@ -11543,12 +11580,12 @@ Plecs {
       }
       Parameter {
         Variable      "Chi_vcl"
-        Value         "0.8"
+        Value         "0.72"
         Show          off
       }
       Parameter {
         Variable      "omegan_vcl"
-        Value         "50"
+        Value         "75"
         Show          off
       }
       Parameter {
@@ -11670,12 +11707,12 @@ Plecs {
       }
       Parameter {
         Variable      "Chi_vcl"
-        Value         "0.8"
+        Value         "0.72"
         Show          off
       }
       Parameter {
         Variable      "omegan_vcl"
-        Value         "50"
+        Value         "75"
         Show          off
       }
       Parameter {
@@ -13717,7 +13754,7 @@ Plecs {
       TimeRange     "0.0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -13759,11 +13796,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 23; 1920, 1020]
+      Location      [0, 27; 1920, 1034]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAB4AAAAPKAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAB4AAAAPUAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -13775,16 +13812,16 @@ Plecs {
 "AAkAAAAAQAAAAAAAAPoAAAAACQ="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
-      TimeRange     "0.0"
+      TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
-      ShowLegend    "1"
+      ShowLegend    "2"
       Axis {
-        Name          ""
+        Name          "Frecuencia de red"
         AutoScale     1
         MinValue      0
         MaxValue      1
