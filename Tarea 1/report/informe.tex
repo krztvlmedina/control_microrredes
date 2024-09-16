@@ -209,15 +209,15 @@ De acuerdo a lo visto en clases, para calcular la pendiente droop para cada pote
 En nuestra implementación se optó por crear un subsistema con parámetros regulables a través del diálogo de la figura \ref{dialogo_dg}, por lo que se usa internamente las siguientes fórmulas:
 
 \begin{equation*}    
-M_p = -\omega_0\frac{(\delta_\omega)}{100\cdot P_{max}};
+M_p = -\omega_0\frac{(\Delta_\omega)}{100\cdot P_{max}};
 \end{equation*}
 
 \begin{equation*}
-M_q = -V_0\frac{(\delta_V)}{100\cdot Q_{max}};
+M_q = -V_0\frac{(\Delta_V)}{100\cdot Q_{max}};
     
 \end{equation*}
 
-donde $\delta_V$ y $\Delta_\omega$ son valores dentro de los rangos estipulados en el enunciado de la tarea: $[0.1 - 30]$ para la frecuencia; $[0.1 - 10]$ para la tensión. Se consideró inicialmente una variación de frecuencia de 5\% y de voltaje de 2\%, obteniéndose las pendientes droop $M_p = -1.6\cdot 10^{-4}$ y $ Mq = -7.33 \cdot 10^{-4}$.\\
+donde $\Delta_V$ y $\Delta_\omega$ son valores dentro de los rangos estipulados en el enunciado de la tarea: $[0.1 - 30]$ para la frecuencia; $[0.1 - 10]$ para la tensión. Se consideró inicialmente una variación de frecuencia de 5\% y de voltaje de 2\%, obteniéndose las pendientes droop $M_p = -1.6\cdot 10^{-4}$ y $ Mq = -7.33 \cdot 10^{-4}$.\\
 
 \begin{figure}
    \centering
@@ -238,7 +238,28 @@ Al realizar una simulación teniendo las 3 máquinas generadoras con la misma pe
 Se observa en la figura \ref{resonancia_generadores} que los generadores no logran mantener el voltaje dentro de un rango razonable en torno al voltaje nominal, que es lo que se hubiera esperado. Debido a esto, resulta imposible estudiar el efecto de la conexión y desconexión de cargas. Sin embargo, se puede estudiar el efecto del cambio de las pendientes \textit{droop} de una sola unidad generadora. A partir de esto se obtienen las figuras \ref{droop_1}, \ref{droop_́2} y \ref{droop_3}.
 
 
-De acuerdo a la simulación, la potencia...
+\begin{figure}
+   \centering
+   \includegraphics[width=0.5\linewidth]{Tarea 1/report/imagenes/p3a/droop_1.pdf}
+   \caption{Potencia calculada con $Mp = -0.0005$ y $Mq_-0.0018$.}
+   \label{droop_1}
+\end{figure}
+
+\begin{figure}
+   \centering
+   \includegraphics[width=0.5\linewidth]{Tarea 1/report/imagenes/p3a/droop_2.pdf}
+   \caption{Potencia calculada con $Mp = -0.0003$ y $Mq_-0.0018$.}
+   \label{droop_2}
+\end{figure}
+
+\begin{figure}
+   \centering
+   \includegraphics[width=0.5\linewidth]{Tarea 1/report/imagenes/p3a/droop_3.pdf}
+   \caption{Potencia calculada con $Mp = -0.000036$ y $Mq_-0.0018$.}
+   \label{droop_3}
+\end{figure}
+
+Se puede observar a partir de estas que la variación de las pendientes \textit{droop}, en una sola unidad
 
 \subsection{Parte b.-}
 
@@ -267,7 +288,7 @@ Donde:
 
 De acuerdo a esto, la pendiente máxima recomendada será la que entregue un FECF lo más cercana a 1 dado que este será el que entregará el mejor desempeño del Control de Frecuencia. Para lograr esto, lo que se requiere es que se tenga un $\Delta f^*_{máx}(k)$ lo más pequeño posible y un $\Delta f_{máx}$ lo más grande posible. Sin embargo, no fue posible encontrar valores que hicieran esto posible dado que no se dan datos de reservas ni del Control Rápido de Frecuencia.\\
 
-Por otro lado, la pendiente droop es crucial para el control de potencia en sistemas eléctricos modernos, especialmente en redes descentralizadas como microrredes y sistemas con fuentes de energía distribuidas. Proporciona una solución efectiva, autónoma y estable para compartir la carga y regular las condiciones de operación sin la necesidad de un control centralizado o comunicación directa entre las unidades. Además, es esencial para manejar la variabilidad en sistemas que integran energías renovables, asegurando la estabilidad y eficiencia operativa.
+Por otro lado, la pendiente droop es crucial para el control de potencia en sistemas eléctricos modernos, especialmente en redes descentralizadas como microrredes y sistemas con fuentes de energía distribuidas. Proporciona una solución efectiva, autónoma y estable para compartir la carga y regular las condiciones de operación sin la necesidad de un control centralizado o comunicación directa entre las unidades. Además, es esencial para manejar la variabilidad en sistemas que integran energías renovables, asegurando la estabilidad y eficiencia operativa.\\
 
 \section{Pregunta 3}
 
