@@ -128,7 +128,7 @@ Internamente, se utilizó un control con términos cruzados visto en cátedra, t
    \label{ccl interno}
 \end{figure}
 
-De acuerdo a lo visto en clases, a cada lazo de control primario se le dio como entrada un escalón con el fin de poder sintonizar los valores de las constantes proporcionales e integrales de los controladores PI, en función del valor de \textit{overshoot} y tiempo de estabilización observado. Las respuestas obtenidas se pueden observar en las figuras \ref{step_response_vcl} y \ref{step_response_ccl}. Las fórmulas utilizadas para definir estos valores fueron:
+De acuerdo a lo visto en clases, a cada lazo de control primario se le dio como entrada un escalón con el fin de poder sintonizar los valores de las constantes proporcionales e integrales de los controladores PI, en función del valor de \textit{overshoot} y tiempo de estabilización observado. La respuesta obtenida se pueden observar en la figura \ref{step_response_ccl}. Las fórmulas utilizadas para definir estos valores fueron:
 
 \begin{equation}
     k_p^i = 2L\zeta w_{n}
@@ -138,14 +138,7 @@ De acuerdo a lo visto en clases, a cada lazo de control primario se le dio como 
     k_i^i = Lw_{n}^2
 \end{equation}
 
-considerando $\omega_n$ como la frecuencia natural del controlador y $\zeta$ como coeficiente de amortiguamiento. Utilizando estas fórmulas, se determinó que los valores de $k_p^i$ y $k_i^i$ son 1.224 y 688.5 respectivamente, utilizando un $\zeta$ de 0.8 y un $w_{n}$ de 900Hz.
-
-\begin{figure}
-   \centering
-   \includegraphics[width=0.5\linewidth]{Tarea 1/report/imagenes/p1c/respuesta_escalon_vcl.pdf}
-   \caption{Respuesta al escalón de lazo de control de tensión.}
-   \label{step_response_vcl}
-\end{figure}
+considerando $\omega_n$ como la frecuencia natural del controlador y $\zeta$ como coeficiente de amortiguamiento. Utilizando estas fórmulas, se determinó que los valores de $k_p^i$ y $k_i^i$ son 1.224 y 688.5 respectivamente, utilizando un $\zeta$ de 0.8 y un $w_{n}$ de 900Hz. Estos coeficientes fueron usados para los controladores tanto de la corriente en d como en q.
 
 \begin{figure}
    \centering
@@ -184,11 +177,20 @@ De acuerdo a lo visto en clases, al modelo físico se le dio de entrada un escal
     k_i^v = Cw_{n}^2
 \end{equation}
 
-Utilizando estas fórmulas, se determinó que los valores de $k_p^v$ y $k_i^v$ son X y Z respectivamente, utilizando un $\zeta$ de U y un $w_{n}$ de O.
+Utilizando estas fórmulas, se determinó que los valores de $k_p^v$ y $k_i^v$ son 0.0088 y 0.343 respectivamente, utilizando un $\zeta$ de 0.9 y un $w_{n}$ de 70Hz. Estos coeficientes fueron usados para los controladores de voltaje tanto en d como en q. 
+
+La frecuencia natural escogida se eligió de tal forma que fuera como mínimo 10 veces más pequeña que aquella del lazo de corriente, con el objetivo de desacoplar los lazos de control. Luego, tanto esta como el coeficiente de amortiguamiento fueron seleccionados de tal forma de reducir lo más posible el error estacionario y reducir el valor del \textit{overshoot} frente a un escalón. La simulación obtenida se puede observar en la figura \ref{step_response_vcl}.
+
+
+\begin{figure}
+   \centering
+   \includegraphics[width=0.5\linewidth]{Tarea 1/report/imagenes/p1c/respuesta_escalon_vcl.pdf}
+   \caption{Respuesta al escalón de lazo de control de tensión.}
+   \label{step_response_vcl}
+\end{figure}
 
 \subsection{Parte e.-}
-
-
+Considerando los rangos de coeficiente de amortiguamiento y frecuencia recomendados para el lazo de control de corriente, se obtuvo la respuesta de la figura \ref{step_response_ccl}. Esta figura corresponde a la de los valores que causaron el menor \textit{overshoot} observado, con un valor de aproximadamente 23\% para la corriente d, 6\% y un tiempo de estabilización de 0.01 segundos para ambos.  
 
 \section{Pregunta 2}
 
@@ -204,10 +206,36 @@ De acuerdo a lo visto en clases, para calcular la pendiente droop para cada pote
     M_q = \frac{\Delta w}{Q_{máx}}
 \end{equation}
 
-Por otro lado, al estar tratando la pendiente como un valor porcentual, se debe multiplicar por la frecuencia nominal y dividir por 100 a ambas pendientes para dejarlos como porcentajes de los valores nominales. A partir de esto, se obtuvo que las pendientes droop para P y Q toman los valores de -0.000166666667 y -0.00073333333 respectivamente.\\
+En nuestra implementación se optó por crear un subsistema con parámetros regulables a través del diálogo de la figura \ref{dialogo_dg}, por lo que se usa internamente las siguientes fórmulas:
+
+\begin{equation*}    
+M_p = -\omega_0\frac{(\delta_\omega)}{100\cdot P_{max}};
+\end{equation*}
+
+\begin{equation*}
+M_q = -V_0\frac{(\delta_V)}{100\cdot Q_{max}};
+    
+\end{equation*}
+
+donde $\delta_V$ y $\Delta_\omega$ son valores dentro de los rangos estipulados en el enunciado de la tarea: $[0.1 - 30]$ para la frecuencia; $[0.1 - 10]$ para la tensión. Se consideró inicialmente una variación de frecuencia de 5\% y de voltaje de 2\%, obteniéndose las pendientes droop $M_p = -1.6\cdot 10^{-4}$ y $ Mq = -7.33 \cdot 10^{-4}$.\\
+
+\begin{figure}
+   \centering
+   \includegraphics[width=0.5\linewidth]{Tarea 1/report/imagenes/p2a/dialogo_dg.png}
+   \caption{Diálogo de parametrización de variables \textit{droop}.}
+   \label{dialogo_dg}
+\end{figure}
 
 Al realizar una simulación teniendo las 3 máquinas generadoras con la misma pendiente droop de potencia activa y reactiva, se obtuvieron los siguientes resultados:
 
+\begin{figure}
+   \centering
+   \includegraphics[width=0.5\linewidth]{Tarea 1/report/imagenes/p3a/resonancia_generadores.pdf}
+   \caption{Diálogo de parametrización de variables \textit{droop}.}
+   \label{resonancia_generadores}
+\end{figure}
+
+Se observa en la figura \ref{resonancia_generadores} que los generadores no logran mantener el voltaje dentro de un rango razonable en torno al voltaje nominal, que es lo que se hubiera esperado. Debido a esto, resulta imposible estudiar el efecto de la conexión y desconexión de cargas. Sin embargo, se puede estudiar el efecto del cambio de las pendientes \textit{droop} de una sola unidad generadora. A partir de esto se obtienen las figuras \ref{droop_1}, \ref{droop_́2} y \ref{droop_3}.
 
 
 De acuerdo a la simulación, la potencia...
@@ -237,7 +265,9 @@ Donde:
     \item $\Delta f_{máx}$: Desviación máxima de frecuencia en estado permanente que agota la totalidad de la reserva asociada al Control Primario de Frecuencia y el Control Rápido de Frecuencia.
 \end{itemize}
 
-De acuerdo a esto, la pendiente máxima recomendada será la que entregue un FECF lo más cercana a 1 dado que este será el que entregará el mejor desempeño del Control de Frecuencia. Para lograr esto, lo que se requiere es que se tenga un $\Delta f^*_{máx}(k)$ lo más pequeño posible y un $\Delta f_{máx}$ lo más grande posible.
+De acuerdo a esto, la pendiente máxima recomendada será la que entregue un FECF lo más cercana a 1 dado que este será el que entregará el mejor desempeño del Control de Frecuencia. Para lograr esto, lo que se requiere es que se tenga un $\Delta f^*_{máx}(k)$ lo más pequeño posible y un $\Delta f_{máx}$ lo más grande posible. Sin embargo, no fue posible encontrar valores que hicieran esto posible dado que no se dan datos de reservas ni del Control Rápido de Frecuencia.\\
+
+Por otro lado, la pendiente droop es crucial para el control de potencia en sistemas eléctricos modernos, especialmente en redes descentralizadas como microrredes y sistemas con fuentes de energía distribuidas. Proporciona una solución efectiva, autónoma y estable para compartir la carga y regular las condiciones de operación sin la necesidad de un control centralizado o comunicación directa entre las unidades. Además, es esencial para manejar la variabilidad en sistemas que integran energías renovables, asegurando la estabilidad y eficiencia operativa.
 
 \section{Pregunta 3}
 
@@ -272,22 +302,31 @@ Las mediciones otorgadas por el PLL indican que la frecuencia de la red toma un 
 
 \subsection{Parte b.-}
 
-De acuerdo a lo pedido, se diseño un controlador secundario que restaura la frecuencia de la red, su diseño se encuentra a continuación:
+De acuerdo a lo pedido, se diseñó un controlador secundario que restaura la frecuencia de la red, su diseño se encuentra a continuación:
 
 \begin{figure}
    \centering
-   \includegraphics[width=0.5\linewidth]{Tarea 1/report/imagenes/p3a/pllred.png}
+   \includegraphics[width=0.5\linewidth]{Tarea 1/report/imagenes/p3b/secundario frecuencia.png}
    \caption{Diseño de controlador secundario de frecuencia.}
    \label{diseñosecfrecuencia}
 \end{figure}
 
-El controlador PI diseñado utilizó las mismas fórmulas de la parte a.-. Sin embargo, de acuerdo a las recomendaciones dadas en cátedra, el control secundario mantiene el rango de operación del coeficiente de amortiguamiento que se utilizó en los demás PI pero opera con anchos de banda entre los 0.2 Hz y 1 Hz, por lo que se decidió ocupar un coeficiente de amortiguamiento de 0.82 y una frecuencia natural de 0.6 Hz.
-
-
+El controlador PI diseñado utilizó las mismas fórmulas de la parte a.-. Sin embargo, de acuerdo a las recomendaciones dadas en cátedra, el control secundario mantiene el rango de operación del coeficiente de amortiguamiento que se utilizó en los demás PI pero opera con anchos de banda entre los 0.2 Hz y 1 Hz, por lo que se decidió ocupar un coeficiente de amortiguamiento de 0.82 y una frecuencia natural de 0.6 Hz. Dado que el control secundario opera a una frecuencia 10 veces menor que el control droop, se considera que este está desacoplado del control primario.
 
 \subsection{Parte c.-}
 
+De acuerdo a lo pedido, se diseñó un controlador secundario que restaura el voltaje para el promedio de tensión de la red, su diseño se encuentra a continuación:
 
+\begin{figure}
+   \centering
+   \includegraphics[width=0.5\linewidth]{Tarea 1/report/imagenes/p3c/secundario voltaje.png}
+   \caption{Diseño de controlador secundario de voltaje.}
+   \label{diseñosecvoltaje}
+\end{figure}
+
+El controlador PI diseñado utilizó las mismas fórmulas de la parte a.-. Sin embargo, de acuerdo a las recomendaciones dadas en cátedra, el control secundario mantiene el rango de operación del coeficiente de amortiguamiento que se utilizó en los demás PI pero opera con anchos de banda entre los 0.2 Hz y 1 Hz, por lo que los valores del controlador son los mismos que los utilizados para el PI del control secundario de frecuencia.\\
+
+Al realizar simulaciones con el controlador secundario de voltaje, se obtuvo que...
 
 \subsection{Parte d.-}
 
