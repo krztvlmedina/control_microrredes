@@ -1,14 +1,14 @@
 Plecs {
   Name          "Modelo_p2"
   Version       "4.8"
-  CircuitModel  "ContStateSpace"
+  CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
   TimeSpan      "120"
   Timeout       ""
-  Solver        "auto"
+  Solver        "FixedStepDiscrete"
   MaxStep       "1e-3"
   InitStep      "-1"
-  FixedStep     "1e-3"
+  FixedStep     "6.25e-5"
   Refine        "1"
   ZCStepSize    "1e-9"
   RelTol        "1e-4"
@@ -58,8 +58,8 @@ Plecs {
   ScriptsDialogSplitterPos "47"
   Schematic {
     Location      [0, 26; 1539, 832]
-    ZoomFactor    1.30957
-    SliderPosition [69, -1]
+    ZoomFactor    0.999997
+    SliderPosition [362, 178]
     ShowBrowser   on
     BrowserWidth  320
     Component {
@@ -8771,7 +8771,7 @@ Plecs {
               Direction     up
             }
             Schematic {
-              Location      [0, 27; 1920, 1005]
+              Location      [0, 26; 1539, 832]
               ZoomFactor    2.57013
               SliderPosition [0, 0]
               ShowBrowser   off
@@ -8786,7 +8786,7 @@ Plecs {
                 LabelPosition east
                 Parameter {
                   Variable      "DiscretizationBehavior"
-                  Value         "2"
+                  Value         "1"
                   Show          off
                 }
                 Parameter {
@@ -8805,7 +8805,7 @@ Plecs {
                 LabelPosition east
                 Parameter {
                   Variable      "DiscretizationBehavior"
-                  Value         "2"
+                  Value         "1"
                   Show          off
                 }
                 Parameter {
@@ -8824,7 +8824,7 @@ Plecs {
                 LabelPosition east
                 Parameter {
                   Variable      "DiscretizationBehavior"
-                  Value         "2"
+                  Value         "1"
                   Show          off
                 }
                 Parameter {
@@ -14773,17 +14773,17 @@ Plecs {
       Location      [0, 26; 1539, 850]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAD8A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAeEAAAAbPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4QAAABfAP///wAAB4QAAAN2AAAA"
+"///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAeEAAAAb/w"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4QAAABfAP///wAAB4QAAANzAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAB"
-"AAAAGQAAAAFAAAAZAAAAAYAAABkAAAABwAAAGQAAAAIAAAAZAAAAAkAAABkAAAAAQAAAGQAAAACAA"
-"AAZAAAAAMAAABkAAAHhAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAADjAAA"
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
+"QAAAGQAAAAIAAAAZAAAAAcAAABkAAAABgAAAGQAAAAFAAAAZAAAAAQAAABkAAAAAwAAAGQAAAACAA"
+"AAZAAAAAEAAABkAAAHbwAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAADjAAA"
 "AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
 "AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AahAAAAAQAAAAAAAAPoAAAAACs="
+"AaMAAAAAQAAAAAAAAPoAAAAACs="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0.0"
