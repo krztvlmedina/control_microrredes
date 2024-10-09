@@ -58,8 +58,8 @@ Plecs {
   ScriptsDialogSplitterPos "94"
   Schematic {
     Location      [0, 23; 1536, 785]
-    ZoomFactor    1.71497
-    SliderPosition [449, 173]
+    ZoomFactor    0.999995
+    SliderPosition [0, -1]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -3655,7 +3655,7 @@ Plecs {
       SrcModel      ""
       Name          "DG2"
       Show          on
-      Position      [525, 370]
+      Position      [520, 370]
       Direction     left
       Flipped       off
       LabelPosition south
@@ -3702,12 +3702,12 @@ Plecs {
       }
       Parameter {
         Variable      "f_lpf"
-        Value         "2"
+        Value         "3"
         Show          off
       }
       Parameter {
         Variable      "delta_v"
-        Value         "5"
+        Value         "2"
         Show          off
       }
       Parameter {
@@ -5157,12 +5157,12 @@ Plecs {
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL+AMAAAAHAAAAA"
-"wAAAH0AAAAJAAAAfQAAAAgAAAB9AAAABQAAAH0AAAAEAAAAfQAAAAcAAAB9AAAABgAAAH0AAAeAAA"
-"AACwEAAAEAAAAAAAAAAAAAAAB9/////wAAAIEAAAAAAAAACwAAALAAAAABAAAAAAAAAH0AAAABAAA"
-"AAAAAAH0AAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAB"
-"AAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAAAAABdYAAAABAAAAAAAAA+gAA"
-"AAAKw=="
+      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAA"
+"wAAAH0AAAACAAAAfQAAAAkAAAB9AAAACAAAAH0AAAAFAAAAfQAAAAQAAAB9AAAABwAAAH0AAAAGAA"
+"AAfQAAAAEAAAB9AAAHgAAAAAsBAAABAAAAAAAAAAAAAAAAff////8AAACBAAAAAAAAAAsAAACwAAA"
+"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
+"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
+"AbQAAAAAQAAAAAAAAPoAAAAACs="
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA"
 "AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
       Axes          "2"
@@ -5172,10 +5172,11 @@ Plecs {
       Open          "1"
       Ts            "-1"
       SampleLimit   "0"
-      XAxisLabel    "Time / s"
+      XAxisLabel    "Tiempo [s]"
       ShowLegend    "2"
       Axis {
-        Name          ""
+        Name          base64 "UG90ZW5jaWEgYWN0aXZhIGRlIHVuaWRhZGVzIGRlIGdlbmVy"
+"YWNpw7Nu"
         AutoScale     1
         MinValue      0
         MaxValue      1
@@ -5186,7 +5187,8 @@ Plecs {
         BaselineValue 0
       }
       Axis {
-        Name          ""
+        Name          base64 "U2XDsWFsZXMgZGUgY29uZXhpw7NuIGRlIGNhcmdhcyByZXNp"
+"c3RpdmFz"
         AutoScale     1
         MinValue      0
         MaxValue      1
@@ -6013,7 +6015,7 @@ Plecs {
       Branch {
         Points        [430, 435]
         Branch {
-          Points        [505, 435]
+          Points        [500, 435]
           DstComponent  "DG2"
           DstTerminal   2
         }
@@ -6232,7 +6234,6 @@ Plecs {
       Type          Signal
       SrcComponent  "From19"
       SrcTerminal   1
-      Points        [535, 410; 540, 410]
       DstComponent  "DG2"
       DstTerminal   5
     }
