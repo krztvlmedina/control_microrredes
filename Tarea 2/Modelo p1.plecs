@@ -1,5 +1,5 @@
 Plecs {
-  Name          "Modelo_p1"
+  Name          "Modelo p1"
   Version       "4.8"
   CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
@@ -59,7 +59,7 @@ Plecs {
   Schematic {
     Location      [0, 26; 1536, 788]
     ZoomFactor    0.999995
-    SliderPosition [0, 46]
+    SliderPosition [0, -1]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -3532,7 +3532,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "R"
-            Value         "1"
+            Value         "R"
             Show          off
           }
         }
@@ -5427,211 +5427,6 @@ Plecs {
         Variable      "Width"
         Value         "3"
         Show          off
-      }
-    }
-    Component {
-      Type          Subsystem
-      Name          base64 "Q8OhbGN1bG8KREFQSQ=="
-      Show          on
-      Position      [120, 175]
-      Direction     up
-      Flipped       off
-      LabelPosition south
-      CommentOut    DisabledOpenCircuit
-      Frame         [-65, -50; 65, 50]
-      SampleTime    "-1"
-      CodeGenDiscretizationMethod "2"
-      CodeGenTarget "Generic"
-      MaskDisplayLang "2"
-      MaskIconFrame on
-      MaskIconOpaque off
-      MaskIconRotates on
-      Terminal {
-        Type          Input
-        Position      [-65, -40]
-        Direction     left
-      }
-      Terminal {
-        Type          Output
-        Position      [69, -35]
-        Direction     right
-      }
-      Terminal {
-        Type          Input
-        Position      [-65, -20]
-        Direction     left
-      }
-      Terminal {
-        Type          Input
-        Position      [-65, 0]
-        Direction     left
-      }
-      Terminal {
-        Type          Input
-        Position      [-65, 25]
-        Direction     left
-      }
-      Schematic {
-        Location      [0, 23; 1536, 785]
-        ZoomFactor    1.96257
-        SliderPosition [0, 0]
-        ShowBrowser   off
-        BrowserWidth  100
-        Component {
-          Type          Input
-          Name          "power\nvector"
-          Show          on
-          Position      [60, 80]
-          Direction     right
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "Index"
-            Value         "1"
-            Show          on
-          }
-          Parameter {
-            Variable      "Width"
-            Value         "-1"
-            Show          off
-          }
-        }
-        Component {
-          Type          Output
-          Name          "Out1"
-          Show          on
-          Position      [315, 80]
-          Direction     right
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "Index"
-            Value         "2"
-            Show          on
-          }
-          Parameter {
-            Variable      "Width"
-            Value         "-1"
-            Show          off
-          }
-        }
-        Component {
-          Type          Input
-          Name          "voltage\nvector"
-          Show          on
-          Position      [60, 150]
-          Direction     right
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "Index"
-            Value         "3"
-            Show          on
-          }
-          Parameter {
-            Variable      "Width"
-            Value         "-1"
-            Show          off
-          }
-        }
-        Component {
-          Type          Input
-          Name          "adjacency\nmatrix"
-          Show          on
-          Position      [60, 205]
-          Direction     right
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "Index"
-            Value         "4"
-            Show          on
-          }
-          Parameter {
-            Variable      "Width"
-            Value         "-1"
-            Show          off
-          }
-        }
-        Component {
-          Type          Input
-          Name          "index"
-          Show          on
-          Position      [60, 30]
-          Direction     right
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "Index"
-            Value         "5"
-            Show          on
-          }
-          Parameter {
-            Variable      "Width"
-            Value         "-1"
-            Show          off
-          }
-        }
-        Component {
-          Type          DynamicSignalSelector
-          Name          "Dynamic Signal Selector"
-          Show          off
-          Position      [145, 80]
-          Direction     up
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "DefaultIndex"
-            Value         "1"
-            Show          off
-          }
-          Parameter {
-            Variable      "Indexing"
-            Value         "1"
-            Show          off
-          }
-        }
-        Component {
-          Type          DynamicSignalSelector
-          Name          "Dynamic Signal Selector1"
-          Show          off
-          Position      [145, 150]
-          Direction     up
-          Flipped       off
-          LabelPosition south
-          Parameter {
-            Variable      "DefaultIndex"
-            Value         "1"
-            Show          off
-          }
-          Parameter {
-            Variable      "Indexing"
-            Value         "1"
-            Show          off
-          }
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "power\nvector"
-          SrcTerminal   1
-          DstComponent  "Dynamic Signal Selector"
-          DstTerminal   1
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "index"
-          SrcTerminal   1
-          Points        [145, 30]
-          DstComponent  "Dynamic Signal Selector"
-          DstTerminal   2
-        }
-        Connection {
-          Type          Signal
-          SrcComponent  "voltage\nvector"
-          SrcTerminal   1
-          DstComponent  "Dynamic Signal Selector1"
-          DstTerminal   1
-        }
       }
     }
     Component {
