@@ -1,5 +1,5 @@
 Plecs {
-  Name          "Modelo p3"
+  Name          "Modelo p2"
   Version       "4.8"
   CircuitModel  "DiscStateSpace"
   StartTime     "0.0"
@@ -30,9 +30,8 @@ Plecs {
   FixedPointDatatypeOverride "1"
   InitializationCommands "V0 = 400;\nLf = 0.85e-3;\nCf = 70e-6;\nRl = 0.5;\nR1"
 " = 100;\nR2 = 100;\nR3 = 125;\n\nP_1_max = 3e3;\nP_2_max = 3e3;\nP_3_max = 3e"
-"3;\n\nc_1 = [1 1 1];\nc_2 = [1 1 1];\nc_3 = [1 1 1];\n\ngamma_1 = 0.5;\ngamma"
-"_2 = 0.5;\ngamma_3 = 0.5;\n\nzeta_dapi_1 = 0.5;\nzeta_dapi_2 = 0.5;\nzeta_dap"
-"i_3 = 0.5;"
+"3;\n\nc_1 = [1 1 1];\nc_2 = [1 1 1];\nc_3 = [1 1 1];\n\nf_dapi = 0.5;\n\ngamm"
+"a_1 = 0.5;\ngamma_2 = 0.5;\ngamma_3 = 0.5;"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -59,7 +58,7 @@ Plecs {
   Schematic {
     Location      [0, 26; 1536, 788]
     ZoomFactor    0.999997
-    SliderPosition [0, 564]
+    SliderPosition [0, -1]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -616,7 +615,9 @@ Plecs {
 "Kp_ccl = 2*Lf*zeta_ccl*omegan_ccl*2*pi;\n"
 "Ki_ccl = Lf*(omegan_ccl*2*pi)^2;\n"
 "\n"
-"omega_lpf = f_lpf*2*pi;"
+"omega_lpf = f_lpf*2*pi;\n"
+"\n"
+"zeta_dapi = 2*pi*f_dapi;"
       Parameter {
         Variable      "V0"
         Prompt        "Voltaje nominal"
@@ -636,8 +637,8 @@ Plecs {
         TabName       "DAPI"
       }
       Parameter {
-        Variable      "zeta_dapi"
-        Prompt        base64 "R2FuYW5jaWEgYWNjacOzbiBjb250cm9s"
+        Variable      "f_dapi"
+        Prompt        "Frecuencia"
         Type          FreeText
         Value         ""
         Show          off
@@ -771,7 +772,7 @@ Plecs {
       }
       TerminalNames { "Dg+", "Control\nsignals", "Dg-", "Pi", "Power\nvector", ""
 "Vout", "v_sec" }
-      Location      [0, 26; 1536, 780]
+      Location      [0, 23; 1536, 766]
       ZoomFactor    1
       SliderPosition [0, 0]
       ShowBrowser   off
@@ -3403,8 +3404,8 @@ Plecs {
         Show          off
       }
       Parameter {
-        Variable      "zeta_dapi"
-        Value         "zeta_dapi_1"
+        Variable      "f_dapi"
+        Value         "f_dapi"
         Show          off
       }
       Parameter {
@@ -3751,8 +3752,8 @@ Plecs {
         Show          off
       }
       Parameter {
-        Variable      "zeta_dapi"
-        Value         "zeta_dapi_2"
+        Variable      "f_dapi"
+        Value         "f_dapi"
         Show          off
       }
       Parameter {
@@ -3951,8 +3952,8 @@ Plecs {
         Show          off
       }
       Parameter {
-        Variable      "zeta_dapi"
-        Value         "zeta_dapi_3"
+        Variable      "f_dapi"
+        Value         "f_dapi"
         Show          off
       }
       Parameter {
@@ -5249,11 +5250,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 26; 1536, 811]
+      Location      [0, 23; 1536, 804]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAG4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAH4A////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAAB+AP///wAAAAMAAAeAAAAAffw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4AAAABfAP///wAAB4AAAAO2AAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAAB4AAAABfAP///wAAB4AAAAOxAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -6195,7 +6196,7 @@ Plecs {
           AutoScale     1
           MinValue      0
           MaxValue      1
-          Signals       {"P dg1", "P dg2", "P dg3"}
+          Signals       {"DG 1", base64 "REfigIgy", "DG 3"}
           Untangle      0
           KeepBaseline  off
           BaselineValue 0
