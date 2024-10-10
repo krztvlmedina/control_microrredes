@@ -140,32 +140,33 @@ A partir de la simulación se puede observar un comportamiento inestable en los 
 \subsection{Parte b.-}
 
 En esta sección se sintonizó el controlador DAPI utilizando la estrategia de \textit{trade-off}. Esta técnica de sintonización balancea los parámetros de la red, buscando un compromiso entre qué tan bien se comparten las potencias y los voltajes entres las unidades de generación. En la Figura \ref{potencia-compartida}, se observa, que teniendo un ponderador alto asociado a los errores de potencia en comparación al de voltaje, se tienen potencias muy similares independientemente de cuáles cargas están conectadas. Sin embargo, el voltaje tiene problemas para seguir el valor nominal de 400V, teniendo hasta 200V de diferencia de una unidad generadora a otra, como se puede observar en la Figura \ref{voltaje-malo}.
+ 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{tarea}
+    \includegraphics[width=0.5\linewidth]{Tarea 2/report/imagenes/p2b/potencia-compartida.png}
     \caption{Potencias de unidades generadoras con $\gamma = 0.5$ y matriz de adyacencia ponderada por $c = 10$.}
-    \label{fig:enter-label}
+    \label{potencia-compartida}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{tarea}
+    \includegraphics[width=0.5\linewidth]{Tarea 2/report/imagenes/p2b/voltaje-malo.png}
     \caption{Voltajes de unidades generadoras con $\gamma = 0.5$ y matriz de adyacencia ponderada por $c = 10$.}
-    \label{fig:enter-label}
+    \label{voltaje-malo}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{tarea}
-    \caption{Potencias de unidades generadoras con $\gamma = 0.5$ y matriz de adyacencia ponderada por $c = 10$.}
-    \label{fig:enter-label}
+    \includegraphics[width=0.5\linewidth]{Tarea 2/report/imagenes/p2b/potencia-mala.png}
+    \caption{Potencias de unidades generadoras con $\gamma = 5$ y matriz de adyacencia ponderada por $c = 0.5$.}
+    \label{potencia-mala}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{tarea}
-    \caption{Potencias de unidades generadoras con $\gamma = 0.5$ y matriz de adyacencia ponderada por $c = 10$.}
-    \label{fig:enter-label}
+    \includegraphics[width=0.5\linewidth]{Tarea 2/report/imagenes/p2b/voltaje-compartido.png}
+    \caption{Potencias de unidades generadoras con $\gamma = 5$ y matriz de adyacencia ponderada por $c = 0.5$.}
+    \label{voltaje-compartido}
 \end{figure}
 
 
