@@ -81,7 +81,7 @@ A medida que las pendientes droop aumentan, las unidades con pendientes más alt
 
 \subsection{Parte a.-}
 
-Para el diseño del control secundario distribuido DAPI, se implementó un controlador integral que restaura los niveles de tensión en la micro-red. En base a la ecuación \ref{controlador_dapi_tension}, se puede establecer una frecuencia natural dependiente del parámetro $\zeta_1$ de cada unidad generadora. Se establece entonces $\zeta_i = 2\pi f_{i}$. Al tratarse de un control secundario, se busca que su frecuencia natural sea 10 veces más pequeña que la del control primario, para garantizar el desacople de estos. Se decidió usar $\zeta = 2\pi 0.1 = 0.628$ para todas las unidades generadoras en base a la respuesta observada en la Figura \ref{accion_dapi}. \\
+Para el diseño del control secundario distribuido DAPI, se implementó un controlador integral que restaura los niveles de tensión en la micro-red. En base a la ecuación \ref{controlador_dapi_tension}, se puede establecer una frecuencia natural dependiente del parámetro $\zeta_1$ de cada unidad generadora. Se establece entonces $\zeta_i = 2\pi f_{i}$. Al tratarse de un control secundario, se busca que su frecuencia natural sea 10 veces más pequeña que la del control primario, para garantizar el desacople de estos. Se decidió usar $\zeta = 2\pi 0.1 = 0.628$ para todas las unidades generadoras en base a la respuesta observada en la Figura \ref{accion_dapi_ok}. \\
 
 Además, de acuerdo a lo visto en cátedra, se definió un tiempo de muestreo de 1 segundo, correspondiente al rango de frecuencia deseado de un control secundario de voltaje.
 
@@ -207,12 +207,11 @@ Los parámetros de interés, como el error en estado estacionario y la velocidad
 
 \subsection{Parte d.-}
 
-Finalmente, se analizó el impacto de modificar el tiempo de muestreo del control secundario sobre el desempeño del sistema. Esta variación en el tiempo de muestreo puede afectar la estabilidad y la velocidad de respuesta del controlador DAPI. 
+Finalmente, se analizó el impacto de modificar el tiempo de muestreo del control secundario sobre el desempeño del sistema. Esta variación en el tiempo de muestreo puede afectar la estabilidad y la velocidad de respuesta del controlador DAPI.\\
 
-Como se observa en la Figura \ref{sampling-bajo} el tiempo de muestreo se redujo, el controlador pudo reaccionar más rápidamente ante las perturbaciones en la red, mejorando el tiempo de respuesta del sistema y minimizando los errores transitorios. Sin embargo, si el tiempo de muestreo se reduce excesivamente, puede haber un incremento en el consumo de recursos computacionales, lo que podría no ser viable en aplicaciones prácticas donde la capacidad de procesamiento es limitada, especialmente considerando las alternativas actuales de comunicación entre unidades de generación. Además, tiempos de muestreo muy pequeños pueden introducir ruido en las mediciones y generar oscilaciones indeseadas en la respuesta del sistema, comprometiendo la estabilidad.\\
+Como se observa en la Figura \ref{sampling_bajo} el tiempo de muestreo se redujo, el controlador pudo reaccionar más rápidamente ante las perturbaciones en la red, mejorando el tiempo de respuesta del sistema y minimizando los errores transitorios. Sin embargo, si el tiempo de muestreo se reduce excesivamente, puede haber un incremento en el consumo de recursos computacionales, lo que podría no ser viable en aplicaciones prácticas donde la capacidad de procesamiento es limitada, especialmente considerando las alternativas actuales de comunicación entre unidades de generación. Además, tiempos de muestreo muy pequeños pueden introducir ruido en las mediciones y generar oscilaciones indeseadas en la respuesta del sistema, comprometiendo la estabilidad.\\
 
-Por otro lado, como se observa en la Figura \ref{sampling-alto}, cuando se incrementó el tiempo de muestreo el sistema mostró una respuesta más lenta a las perturbaciones, lo que incrementó el tiempo necesario para alcanzar el estado estacionario. Aunque esto puede aliviar la carga computacional del sistema, el principal efecto negativo fue la disminución de la capacidad del controlador para responder rápidamente.
-
+Por otro lado, como se observa en la Figura \ref{sampling_alto}, cuando se incrementó el tiempo de muestreo el sistema mostró una respuesta más lenta a las perturbaciones, lo que incrementó el tiempo necesario para alcanzar el estado estacionario. Aunque esto puede aliviar la carga computacional del sistema, el principal efecto negativo fue la disminución de la capacidad del controlador para responder rápidamente.
 
 \begin{figure}
     \centering
@@ -266,19 +265,7 @@ Se simuló el efecto de un retardo comunicacional entre los nodos de control de 
 
 % Poner resultados de esta sección
 
-Los resultados mostraron que con un retardo de 1 vez el tiempo de muestreo, el sistema continuó operando de manera estable, con una mínima afectación en el tiempo de respuesta del controlador. Aunque hubo una leve demora en la corrección de los niveles de tensión tras las variaciones de carga, el sistema logró restaurar la tensión a los valores de referencia sin mayores complicaciones.
-
-\subsubsection{Retardo de 5 veces el tiempo de muestreo del control secundario - Y segundos}
-
-% Poner resultados de esta sección
-
-Al aumentar el retardo a 5 veces el tiempo de muestreo, comenzaron a ser evidentes algunos efectos negativos en la respuesta del sistema. El retardo en la comunicación generó oscilaciones leves en los niveles de tensión, y el controlador tuvo más dificultades para corregir las fluctuaciones de manera rápida. A pesar de ello, la micro-red se mantuvo estable y fue capaz de restaurar los niveles de tensión, aunque con un mayor tiempo de recuperación.
-
-\subsubsection{Retardo de 10 veces el tiempo de muestreo del control secundario - Z segundos}
-
-% Poner resultados de esta sección
-
-Con un retardo de 10 veces el tiempo de muestreo, las oscilaciones en la tensión se incrementaron significativamente, y el sistema comenzó a mostrar signos de inestabilidad, especialmente al conectar y desconectar cargas de manera abrupta. El controlador DAPI tuvo dificultades para reaccionar a las variaciones de carga, lo que resultó en picos de tensión y un aumento del tiempo necesario para restablecer el equilibrio en la micro-red.
+Los resultados mostraron que con un retardo de 1 vez el tiempo de muestreo, el sistema continuó operando de manera estable, con una mínima afectación en el tiempo de respuesta del controlador. Aunque hubo una leve demora en la corrección de los niveles de tensión tras las variaciones de carga, el sistema logró restaurar la tensión a los valores de referencia sin mayores complicaciones. Los resultados de esta parte corresponden a aquellos de las Figuras \ref{potencia_desconexion} y \ref{voltaje_desconexion}.
 
 \subsubsection{Retardo de 20 veces el tiempo de muestreo del control secundario - W segundos}
 
