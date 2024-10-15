@@ -1,0 +1,82 @@
+% Template:     Informe LaTeX
+% Documento:    Archivo principal
+% Versión:      7.0.0 (23/06/2020)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        Facultad de Ciencias Físicas y Matemáticas
+%        Universidad de Chile
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/informe]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% CREACIÓN DEL DOCUMENTO
+\documentclass[letterpaper,oneside]{article}
+
+% INFORMACIÓN DEL DOCUMENTO
+\def\titulodelinforme {Tarea 2}
+\def\temaatratar {Modelamiento, Implementación y Control de Micro-redes DC}
+
+\def\autordeldocumento {Cristóbal y Felipe.}
+\def\nombredelcurso {Control Avanzado de Micro-redes}
+\def\codigodelcurso {EL7058-1}
+
+\def\nombreuniversidad {Universidad de Chile}
+\def\nombrefacultad {Facultad de Ciencias Físicas y Matemáticas}
+\def\departamentouniversidad {Departamento de Ingeniería Eléctrica}
+\def\imagendepartamento {logos/die}
+\def\imagendepartamentoescala {0.2}
+\def\localizacionuniversidad {Santiago, Chile}
+
+% INTEGRANTES, PROFESORES Y FECHAS
+\def\tablaintegrantes {
+\begin{tabular}{ll}
+	Integrantes:
+	& \begin{tabular}[t]{l}
+		Felipe Alemany \\
+		Cristóbal Medina M. \\
+	\end{tabular} \\
+	Profesores:
+	& \begin{tabular}[t]{l}
+		Alex Navas\\
+	\end{tabular} \\
+	Auxiliares:
+	& \begin{tabular}[t]{l}
+		Benjamín Moreno V. \\
+		Matías Alegría S.\\
+		
+	\end{tabular} \\
+
+	\multicolumn{2}{l}{Fecha de entrega: 9 de Octubre 2024} \\
+	\multicolumn{2}{l}{\localizacionuniversidad}
+\end{tabular}}{
+}
+
+% IMPORTACIÓN DEL TEMPLATE
+\input{template}
+
+% INICIO DE PÁGINAS
+\begin{document}
+	
+% PORTADA
+\templatePortrait
+
+% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
+\templatePagecfg
+
+% RESUMEN O ABSTRACT
+
+
+% TABLA DE CONTENIDOS - ÍNDICE
+\templateIndex
+
+% CONFIGURACIONES FINALES
+\templateFinalcfg
+
+% ======================= INICIO DEL DOCUMENTO =======================
+
+\input{informe} % Ejemplo, se puede borrar
+
+% FIN DEL DOCUMENTO
+\end{document}
