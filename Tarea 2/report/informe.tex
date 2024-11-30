@@ -259,35 +259,10 @@ Cuando se comenzó a desconectar las cargas, el sistema reaccionó de manera inv
 
 \subsection{Parte b.-}
 
-Se simuló el efecto de un retardo comunicacional entre los nodos de control de las unidades generadoras. Este retardo, que varía de 1 a 20 veces el tiempo de muestreo del control secundario, permite evaluar el impacto de las demoras en la comunicación sobre la estabilidad y eficiencia del sistema. Los resultados de la simulación mostrarán cómo los distintos niveles de retardo afectan el control de la micro-red.
 
-\subsubsection{Retardo de 1 vez el tiempo de muestreo del control secundario - X segundos}
-
-% Poner resultados de esta sección
-
-Los resultados mostraron que con un retardo de 1 vez el tiempo de muestreo, el sistema continuó operando de manera estable, con una mínima afectación en el tiempo de respuesta del controlador. Aunque hubo una leve demora en la corrección de los niveles de tensión tras las variaciones de carga, el sistema logró restaurar la tensión a los valores de referencia sin mayores complicaciones. Los resultados de esta parte corresponden a aquellos de las Figuras \ref{potencia_desconexion} y \ref{voltaje_desconexion}.
-
-\subsubsection{Retardo de 20 veces el tiempo de muestreo del control secundario - W segundos}
-
-% Poner resultados de esta sección
-
-Finalmente, con un retardo de 20 veces el tiempo de muestreo, el sistema presentó una inestabilidad considerable. Los nodos de control tardaban demasiado en recibir la información necesaria para ajustar la potencia de las unidades generadoras, lo que provocó fluctuaciones severas en los niveles de tensión. En algunos casos, el sistema fue incapaz de restaurar los niveles de tensión de manera efectiva, evidenciando la crítica influencia de grandes retardos en la comunicación sobre la estabilidad del sistema.\\
-
-De manera general, se puede notar que si bien retardos pequeños pueden ser manejados de manera efectiva, aumentos sustanciales en el retardo comunicacional resultan en una degradación notable del desempeño del sistema, lo que puede comprometer la estabilidad y la respuesta del controlador ante variaciones de carga.
 
 \subsection{Parte c.-}
 
-En este escenario, se emularon fallas de comunicación entre las unidades de generación DC, cortando de uno en uno los canales de comunicación. El objetivo es observar cómo el sistema responde ante la pérdida de comunicación y qué efecto tiene esto sobre la estabilidad del control de la micro-red. Los resultados permitirán identificar las vulnerabilidades del sistema ante fallos comunicacionales.
-
-% Poner resultados de esta sección
-
-Los resultados mostraron que al cortar un solo canal de comunicación, el sistema fue capaz de mantener un control relativamente estable de la micro-red, aunque la coordinación entre las unidades generadoras se vio afectada. El controlador DAPI, utilizando los canales restantes, logró compensar la pérdida, y aunque hubo un pequeño aumento en el tiempo de respuesta para restaurar los niveles de tensión, el sistema no mostró signos significativos de inestabilidad.\\
-
-A medida que se cortaron más canales de comunicación, la capacidad del sistema para distribuir de manera eficiente la potencia entre las unidades generadoras disminuyó. Con dos canales fuera de operación, se observó un aumento en las oscilaciones de tensión y una reducción en la precisión con la que las unidades generadoras ajustaban su potencia. Aunque el sistema seguía siendo capaz de restaurar la tensión de manera eventual, la respuesta se hizo más lenta y menos eficiente.\\
-
-Cuando se cortaron tres o más canales, el sistema comenzó a mostrar signos claros de inestabilidad. La pérdida de comunicación entre las unidades de generación dificultó la capacidad del controlador DAPI para coordinar la distribución de la potencia, lo que resultó en fluctuaciones más severas de la tensión y en algunos casos, picos de tensión no deseados. En estos escenarios, el sistema tardó considerablemente más en restaurar los niveles de tensión, y las oscilaciones en la red se volvieron más pronunciadas.\\
-
-Finalmente, cuando se cortaron todos los canales de comunicación, el sistema fue incapaz de restaurar la tensión de manera efectiva. La falta de coordinación entre las unidades generadoras provocó un desbalance significativo en la distribución de la potencia, lo que llevó a fluctuaciones extremas en los niveles de tensión y, en algunos casos, fallas en la operación de la micro-red.
 
 \subsection{Parte d.-}
 
@@ -297,79 +272,14 @@ Finalmente, se simuló la desconexión de una unidad de generación de la red, e
 
 % Poner resultados de esta sección
 
-Al desconectar una de las unidades generadoras, el sistema reaccionó ajustando la potencia entregada por las unidades restantes. Los resultados mostraron que, aunque la micro-red fue capaz de continuar operando sin interrupciones mayores, la tensión experimentó una ligera caída inicial debido a la pérdida de capacidad de generación. Las dos unidades restantes debieron compensar el déficit de potencia, lo que generó un incremento en su carga de trabajo. Este fenómeno se reflejó en un aumento en la potencia generada por cada unidad restante, lo que permitió mantener el suministro de energía a las cargas conectadas.\\
+Al desconectar una de las unidades generadoras, el sistema reaccionó ajustando la potencia entregada por las unidades restantes. Los resultados mostraron que, aunque la micro-red fue capaz de continuar operando sin interrupciones mayores, la tensión experimentó una ligera caída inicial debido a la pérdida de capacidad de generación. Las dos unidades restantes debieron compensar el déficit de potencia, lo que generó un incremento en su carga de trabajo. Este fenómeno se reflejó en un aumento en la potencia generada por cada unidad restante, lo que permitió mantener el suministro de energía a las cargas conectadas. Esto se puede observar en la figura \ref{desconexion_dg}.\\
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Tarea 2/report/imagenes/p3c/desconexion_dg.png}
+    \caption{Potencias de unidades generadoras frente a desconexión de DG 1 en el segundo 18.}
+    \label{desconexion_dg}
+\end{figure}
 
 Sin embargo, la reducción en el número de unidades generadoras activas también disminuyó la redundancia en el sistema, lo que podría hacer que la red sea más vulnerable a perturbaciones adicionales. A pesar de esto, el controlador DAPI fue capaz de ajustar la salida de potencia de manera eficiente, restaurando la tensión a niveles cercanos a los de referencia tras la desconexión de la unidad, aunque con una respuesta más lenta y un pequeño margen de error en comparación con el escenario donde todas las unidades estaban conectadas.
-
-\subsubsection{Reconexión de la unidad de generación}
-
-% Poner resultados de esta sección
-
-Una vez reconectada la unidad de generación al sistema, el controlador DAPI restableció rápidamente el equilibrio de potencia, redistribuyendo la carga entre las tres unidades generadoras. Los resultados mostraron que, tras la reconexión, la tensión volvió rápidamente a sus niveles de referencia y el sistema recuperó su estado normal de operación, con una distribución más uniforme de la potencia entre las tres unidades generadoras.\\
-
-El proceso de reconexión no generó oscilaciones importantes en la tensión, lo que indica que el controlador DAPI fue capaz de manejar de manera eficiente tanto la desconexión como la reconexión de las unidades de generación. Este resultado valida la capacidad del controlador para adaptarse a eventos como fallas temporales o desconexiones programadas de generadores, garantizando la continuidad operativa de la micro-red sin comprometer la estabilidad.
-
----------------------------------------------------
-
-
-De acuerdo a lo visto en clases, para calcular la pendiente droop para cada potencia se debe seguir las siguientes fórmulas:
-
-\begin{equation}
-    M_p = \frac{\Delta w}{P_{máx}}
-\end{equation}
-
-\begin{equation}
-    M_q = \frac{\Delta w}{Q_{máx}}
-\end{equation}
-
-En nuestra implementación se optó por crear un subsistema con parámetros regulables a través del diálogo de la figura \ref{dialogo_dg}, por lo que se usa internamente las siguientes fórmulas:
-
-\begin{equation*}    
-M_p = -\omega_0\frac{(\Delta_\omega)}{100\cdot P_{max}};
-\end{equation*}
-
-\begin{equation*}
-M_q = -V_0\frac{(\Delta_V)}{100\cdot Q_{max}};
-\end{equation*}
-
-donde $\Delta_V$ y $\Delta_\omega$ son valores dentro de los rangos estipulados en el enunciado de la tarea: $[0.1 - 30]$ para la frecuencia; $[0.1 - 10]$ para la tensión. Se consideró inicialmente una variación de frecuencia de 5\% y de voltaje de 2\%, obteniéndose las pendientes droop $M_p = -1.6\cdot 10^{-4}$ y $ Mq = -7.33 \cdot 10^{-4}$.\\
-
-\begin{figure}
-   \centering
-   \includegraphics[width=0.5\linewidth]{Tarea 1/report/imagenes/p2a/dialogo_dg.png}
-   \caption{Diálogo de parametrización de variables \textit{droop}.}
-   \label{dialogo_dg}
-\end{figure}
-
-Al realizar una simulación teniendo las 3 máquinas generadoras con la misma pendiente droop de potencia activa y reactiva, se obtuvieron los siguientes resultados:
-
-\begin{figure}
-   \centering
-   \includegraphics[width=0.5\linewidth]{Tarea 1/report/imagenes/p3a/resonancia_generadores.pdf}
-   \caption{Diálogo de parametrización de variables \textit{droop}.}
-   \label{resonancia_generadores}
-\end{figure}
-
-Se observa en la figura \ref{resonancia_generadores} que los generadores no logran mantener el voltaje dentro de un rango razonable en torno al voltaje nominal, que es lo que se hubiera esperado. Debido a esto, resulta imposible estudiar el efecto de la conexión y desconexión de cargas. Sin embargo, se puede estudiar el efecto del cambio de las pendientes \textit{droop} de una sola unidad generadora. A partir de esto se obtienen las figuras \ref{droop_1}, \ref{droop_2} y \ref{droop_3}, de las cuales no se puede apreciar cambios significativos.
-
-
-\begin{figure}
-   \centering
-   \includegraphics[width=0.5\linewidth]{Tarea 1/report/imagenes/p3a/droop_1.pdf}
-   \caption{Potencia calculada con $Mp = -0.0005$ y $Mq_-0.0018$.}
-   \label{droop_1}
-\end{figure}
-
-\begin{figure}
-   \centering
-   \includegraphics[width=0.5\linewidth]{Tarea 1/report/imagenes/p3a/droop_2.pdf}
-   \caption{Potencia calculada con $Mp = -0.0003$ y $Mq_-0.0018$.}
-   \label{droop_2}
-\end{figure}
-
-\begin{figure}
-   \centering
-   \includegraphics[width=0.5\linewidth]{Tarea 1/report/imagenes/p3a/droop_3.pdf}
-   \caption{Potencia calculada con $Mp = -0.000036$ y $Mq_-0.0018$.}
-   \label{droop_3}
-\end{figure}
