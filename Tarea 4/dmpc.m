@@ -61,7 +61,8 @@ function [accion_control, x_pred] = dmpc(dg_index, mediciones, parametros, pred_
             if dg_index == j
                 continue
             end
-            sum_despacho = sum_despacho + aj(j)*pred_dg_vec(j, 3*Ny + i);
+            preds_j = pred_dg_vec(:, j);
+            sum_despacho = sum_despacho + aj(j)*preds_j(3*Ny + i);
         end
         H(Ny*3+i, Ny*3+i) = lambda3*(prom_con);
         F(Ny*3+1) = sum_despacho;
@@ -81,26 +82,28 @@ function [accion_control, x_pred] = dmpc(dg_index, mediciones, parametros, pred_
     ub(2*Ny : 3*Ny-1) = Pmax_i;
 
     C0 = G*(2*V0 - Vr0);
+    n = 4*Ny + Nu;
+
 
     A = [];
     b = [];
 
     ny_1_vector = ones(1, Ny);
     % Dinámica voltaje
-    v_mat = diag(ny_1_vector, Ny+2);
-    v_mat = v_mat(1:largo_vector_estado, 1:largo_vector_estado); %ignora elementos que se escapan de las dimensiones de A
+    v_mat = diag(ny_1_vector, Ny+1);
+    v_mat = pad_mat(v_mat, n, Ny);
 
-    v_mat_prev = diag(-ny_1_vector, Ny+1);
-    v_mat_prev = v_mat_prev(1:largo_vector_estado, 1:largo_vector_estado);
+    v_mat_prev = diag(-ny_1_vector, Ny);
+    v_mat_prev = pad_mat(v_mat_prev, n, Ny);
 
-    p_mat = diag(-Mp*ny_1_vector, 2*Ny+2);
-    p_mat = p_mat(1:largo_vector_estado, 1:largo_vector_estado);
+    p_mat = diag(-Mp*ny_1_vector, 2*Ny+1);
+    p_mat = pad_mat(p_mat, n, Ny);
 
-    p_mat_prev = Mp*diag(ny_1_vector, 2*Ny+1);
-    p_mat_prev = p_mat_prev(1:largo_vector_estado, 1:largo_vector_estado);
+    p_mat_prev = Mp*diag(ny_1_vector, 2*Ny);
+    p_mat_prev = pad_mat(p_mat_prev, n, Ny);
 
     u_prev = diag(-ny_1_vector, dim_x*Ny);
-    u_prev = u_prev(1:largo_vector_estado, 1:largo_vector_estado);
+    u_prev = pad_mat(u_prev, n, Ny);
 
     restricciones_voltaje = v_mat + v_mat_prev + p_mat + p_mat_prev + u_prev;
 
@@ -108,11 +111,11 @@ function [accion_control, x_pred] = dmpc(dg_index, mediciones, parametros, pred_
     b = [b; zeros(Ny, 1)];
 
     % Dinámica potencia
-    p_mat = diag(ny_1_vector, 2*Ny+2);
-    p_mat = p_mat(1:largo_vector_estado, 1:largo_vector_estado);
+    p_mat = diag(ny_1_vector, 2*Ny+1);
+    p_mat = pad_mat(p_mat, n, Ny);
 
-    v_mat = diag(-C0*ny_1_vector, Ny+2);
-    v_mat = v_mat(1:largo_vector_estado, 1:largo_vector_estado); %ignora elementos que se escapan de las dimensiones de A
+    v_mat = diag(-C0*ny_1_vector, Ny+1);
+    v_mat = pad_mat(v_mat, n, Ny);
 
     restricciones_potencia = p_mat + v_mat;
 
@@ -120,10 +123,10 @@ function [accion_control, x_pred] = dmpc(dg_index, mediciones, parametros, pred_
     b = [b; P0-C0*V0*ones(Ny, 1)];
 
     v_avg_mat = diag(prom_con*ny_1_vector);
-    v_avg_mat = v_avg_mat(1:largo_vector_estado, 1:largo_vector_estado); 
+    v_avg_mat = pad_mat(v_avg_mat, n, Ny);
 
-    v_mat = diag(-ny_1_vector, Ny+2);
-    v_mat = v_mat(1:largo_vector_estado, 1:largo_vector_estado);
+    v_mat = diag(-ny_1_vector, Ny);
+    v_mat = pad_mat(v_mat, n, Ny);
 
     restricciones_voltaje_promedio = v_avg_mat + v_mat;
     A = [A; restricciones_voltaje_promedio];
@@ -135,17 +138,18 @@ function [accion_control, x_pred] = dmpc(dg_index, mediciones, parametros, pred_
             if dg_index == j
                 continue
             end
-            sum_v_pred = sum_v_pred + aj(j)*pred_dg_vec(j,Ny + i);
+            preds_j = pred_dg_vec(:, j);
+            sum_v_pred = sum_v_pred + aj(j)*preds_j(Ny + i);
         end
 
         b = [b; sum_v_pred];
     end
 
     despacho_mat = diag(ny_1_vector, 3*Ny+1);
-    despacho_mat = despacho_mat(1:largo_vector_estado, 1:largo_vector_estado); 
+    despacho_mat = pad_mat(despacho_mat, n, Ny);
 
     p_mat = diag(-a_i*ny_1_vector, 2*Ny+2);
-    p_mat = p_mat(1:largo_vector_estado, 1:largo_vector_estado);
+    p_mat = pad_mat(p_mat, n, Ny);
 
     restricciones_despacho = despacho_mat + p_mat;
 
@@ -154,9 +158,10 @@ function [accion_control, x_pred] = dmpc(dg_index, mediciones, parametros, pred_
     b = [b; b_i*ones(Ny, 1)];
     
     %%    
-    x0 = zeros(1, largo_vector_estado);
+    x0 = zeros(length(H(:, 1)), 1);
     options = optimoptions('quadprog', 'Algorithm', 'active-set');
     [x, fval] = quadprog(H, F, [], [], A, b, lb, ub, x0, options);
+    x = x';
     x_pred = x_pred + x(1:4*Ny);
     accion_control = x(dim_x*Ny + 1);
     
