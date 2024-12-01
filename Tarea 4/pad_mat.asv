@@ -1,0 +1,4 @@
+function padded_mat = pad_mat(mat, n, Ny, Nu)
+    padded_mat = zeros(Ny+Nu, n);
+    padded_mat(1:Ny+Nu, 1:Ny+Nu) = mat(1:Ny+Nu, 1:Ny+Nu);
+end

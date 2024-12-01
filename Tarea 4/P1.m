@@ -1,10 +1,10 @@
 run('Tarea4_init.m')
  
-Ny = 5;
-Nu = 5;
+Ny = 15;
+Nu = 10;
 
 lambda1 = 7;
-lambda2 = 80;
+lambda2 = 800;
 lambda3 = 0.001;
 
 parametros_mpc = [Ny, Nu, lambda1, lambda2, lambda3];
@@ -14,8 +14,8 @@ a1 = a_adj(1, :);
 a2= a_adj(2, :);
 a3 = a_adj(3, :);
 
-mpc_sample_time = 5; %segundos
-tau = 0*mpc_sample_time; % retardo comunicaciones
+mpc_sample_time = 3; %segundos
+tau = 1*mpc_sample_time; % retardo comunicaciones
 
 
 %% test
